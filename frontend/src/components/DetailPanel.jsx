@@ -10,7 +10,7 @@ const ChatIcon = () => (
   </svg>
 )
 
-export default function DetailPanel({ item, onClose }) {
+export default function DetailPanel({ item, onClose, onAskAboutThis }) {
   const isOpen = !!item
 
   return (
@@ -73,19 +73,16 @@ export default function DetailPanel({ item, onClose }) {
                 )}
               </div>
 
-              {/* AI chat prompt — wired up in Phase 2 */}
               <div className="mt-8 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 p-5">
                 <p className="text-xs text-slate-500 dark:text-slate-400 mb-4 leading-relaxed">
-                  The AI assistant can answer follow-up questions about this area of Duane's background.
+                  Have questions? The AI assistant can go deeper on any part of Duane's background.
                 </p>
                 <button
-                  disabled
-                  title="AI chat assistant coming soon"
-                  className="w-full flex items-center justify-center gap-2 py-2.5 px-4 bg-blue-600 text-white text-sm font-medium rounded-lg opacity-50 cursor-not-allowed transition-opacity"
+                  onClick={() => onAskAboutThis(item)}
+                  className="w-full flex items-center justify-center gap-2 py-2.5 px-4 bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white text-sm font-medium rounded-lg transition-colors"
                 >
                   <ChatIcon />
                   <span>Ask about this</span>
-                  <span className="text-blue-200 text-xs font-normal">(coming soon)</span>
                 </button>
               </div>
             </div>

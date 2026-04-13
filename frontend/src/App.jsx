@@ -6,14 +6,32 @@ import CurrentProjects from './components/CurrentProjects'
 import Experience from './components/Experience'
 import Education from './components/Education'
 import DetailPanel from './components/DetailPanel'
+import ChatPanel from './components/ChatPanel'
 import ChatFab from './components/ChatFab'
 import { resumeData } from './data/resume'
 
 export default function App() {
   const [panelItem, setPanelItem] = useState(null)
+  const [chatState, setChatState] = useState(null) // { context, initialPrompt }
 
-  const openDetail = (item) => setPanelItem(item)
+  const openDetail = (item) => {
+    setChatState(null)
+    setPanelItem(item)
+  }
+
   const closeDetail = () => setPanelItem(null)
+
+  const openChat = (context = null, initialPrompt = null) => {
+    setPanelItem(null)
+    setChatState({ context, initialPrompt })
+  }
+
+  const closeChat = () => setChatState(null)
+
+  // Called from DetailPanel's "Ask about this" button
+  const handleAskAboutThis = (item) => {
+    openChat(item.title, item.chatPrompt)
+  }
 
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-900 font-sans">
@@ -30,8 +48,21 @@ export default function App() {
           © {new Date().getFullYear()} Duane Pinkerton
         </footer>
       </div>
-      <DetailPanel item={panelItem} onClose={closeDetail} />
-      <ChatFab />
+
+      <DetailPanel
+        item={panelItem}
+        onClose={closeDetail}
+        onAskAboutThis={handleAskAboutThis}
+      />
+
+      <ChatPanel
+        isOpen={!!chatState}
+        context={chatState?.context}
+        initialPrompt={chatState?.initialPrompt}
+        onClose={closeChat}
+      />
+
+      <ChatFab onOpen={() => openChat()} />
     </div>
   )
 }
