@@ -1,0 +1,97 @@
+const CloseIcon = () => (
+  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+  </svg>
+)
+
+const ChatIcon = () => (
+  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-3 3-3-3z" />
+  </svg>
+)
+
+export default function DetailPanel({ item, onClose }) {
+  const isOpen = !!item
+
+  return (
+    <>
+      {/* Backdrop */}
+      <div
+        className={`fixed inset-0 bg-black/20 z-40 transition-opacity duration-200 ${
+          isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
+        }`}
+        onClick={onClose}
+      />
+
+      {/* Panel */}
+      <div
+        className={`fixed top-0 right-0 h-full w-full max-w-md bg-white shadow-2xl z-50 flex flex-col transition-transform duration-300 ease-out ${
+          isOpen ? 'translate-x-0' : 'translate-x-full'
+        }`}
+      >
+        {/* Panel header */}
+        <div className="flex items-center justify-between px-6 py-5 border-b border-slate-100">
+          {item ? (
+            <span className="text-xs font-semibold uppercase tracking-widest text-blue-600">
+              {item.type}
+            </span>
+          ) : (
+            <span />
+          )}
+          <button
+            onClick={onClose}
+            className="p-1.5 rounded-lg hover:bg-slate-100 text-slate-400 hover:text-slate-600 transition-colors"
+            aria-label="Close panel"
+          >
+            <CloseIcon />
+          </button>
+        </div>
+
+        {/* Panel content */}
+        <div className="flex-1 overflow-y-auto px-6 py-6">
+          {item && (
+            <div>
+              <h2 className="text-xl font-bold text-slate-900 mb-1 leading-snug">
+                {item.title}
+              </h2>
+              {item.subtitle && (
+                <p className="text-sm text-slate-400 mb-5 italic">{item.subtitle}</p>
+              )}
+
+              <div className="mt-5 text-slate-600 text-[15px] leading-relaxed space-y-4">
+                {Array.isArray(item.content) ? (
+                  <ul className="space-y-3">
+                    {item.content.map((line, i) => (
+                      <li key={i} className="flex gap-3">
+                        <span className="text-blue-400 shrink-0 mt-1 text-xs">▸</span>
+                        <span>{line}</span>
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
+                  <p>{item.content}</p>
+                )}
+              </div>
+
+              {/* AI chat prompt — wired up in Phase 2 */}
+              <div className="mt-8 rounded-xl bg-slate-50 border border-slate-200 p-5">
+                <p className="text-xs text-slate-500 mb-4 leading-relaxed">
+                  The AI assistant can answer follow-up questions about this area of Duane's background.
+                </p>
+                <button
+                  disabled
+                  title="AI chat assistant coming soon"
+                  className="w-full flex items-center justify-center gap-2 py-2.5 px-4 bg-blue-600 text-white text-sm font-medium rounded-lg opacity-50 cursor-not-allowed transition-opacity"
+                >
+                  <ChatIcon />
+                  <span>Ask about this</span>
+                  <span className="text-blue-200 text-xs font-normal">(coming soon)</span>
+                </button>
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+    </>
+  )
+}

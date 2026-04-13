@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply antialiased;
+  }
+}
+
+@layer utilities {
+  .panel-enter {
+    transform: translateX(0);
+  }
+  .panel-exit {
+    transform: translateX(100%);
+  }
+}
