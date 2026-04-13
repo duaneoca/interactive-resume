@@ -13,10 +13,10 @@ metadata:
 spec:
   tls:
     - hosts:
-        - YOUR_DOMAIN_HERE
+        - hire-duane.org
       secretName: resume-tls
   rules:
-    - host: YOUR_DOMAIN_HERE
+    - host: hire-duane.org
       http:
         paths:
           - path: /api/
