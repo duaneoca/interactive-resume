@@ -20,10 +20,10 @@ export default function Experience({ data, onExpand }) {
           <div key={job.id}>
             {/* Job header */}
             <div className="flex items-baseline justify-between mb-1">
-              <h3 className="text-lg font-bold text-slate-900">{job.company}</h3>
-              <span className="text-sm text-slate-400 shrink-0 ml-4">{job.period}</span>
+              <h3 className="text-lg font-bold text-slate-900 dark:text-white">{job.company}</h3>
+              <span className="text-sm text-slate-400 dark:text-slate-500 shrink-0 ml-4">{job.period}</span>
             </div>
-            <p className="text-sm text-slate-500 italic mb-6">{job.roles}</p>
+            <p className="text-sm text-slate-500 dark:text-slate-400 italic mb-6">{job.roles}</p>
 
             {/* Sectioned experience (Responsys/Oracle) */}
             {job.sections ? (
@@ -42,8 +42,8 @@ export default function Experience({ data, onExpand }) {
                       }
                       className="group flex items-baseline gap-3 cursor-pointer mb-3 w-fit"
                     >
-                      <h4 className="text-sm font-semibold text-slate-700">{section.title}</h4>
-                      <span className="text-xs text-slate-400">{section.period}</span>
+                      <h4 className="text-sm font-semibold text-slate-700 dark:text-slate-200">{section.title}</h4>
+                      <span className="text-xs text-slate-400 dark:text-slate-500">{section.period}</span>
                       <ExpandIcon />
                     </div>
                     <ul className="space-y-2.5">
@@ -59,10 +59,10 @@ export default function Experience({ data, onExpand }) {
                               chatPrompt: `Tell me more about: "${bullet.substring(0, 80)}..."`,
                             })
                           }
-                          className="group flex gap-3.5 cursor-pointer rounded-xl px-4 py-2.5 -mx-4 hover:bg-white hover:shadow-sm border border-transparent hover:border-slate-200 transition-all duration-200"
+                          className="group flex gap-3.5 cursor-pointer rounded-xl px-4 py-2.5 -mx-4 hover:bg-white dark:hover:bg-slate-800 hover:shadow-sm border border-transparent hover:border-slate-200 dark:hover:border-slate-700 transition-all duration-200"
                         >
                           <span className="text-blue-300 mt-1 shrink-0 text-xs">▸</span>
-                          <span className="text-slate-600 text-[15px] leading-relaxed flex-1 group-hover:text-slate-800 transition-colors">
+                          <span className="text-slate-600 dark:text-slate-300 text-[15px] leading-relaxed flex-1 group-hover:text-slate-800 dark:group-hover:text-slate-100 transition-colors">
                             {bullet}
                           </span>
                           <ExpandIcon />
@@ -87,10 +87,10 @@ export default function Experience({ data, onExpand }) {
                         chatPrompt: `Tell me more about: "${bullet.substring(0, 80)}..."`,
                       })
                     }
-                    className="group flex gap-3.5 cursor-pointer rounded-xl px-4 py-2.5 -mx-4 hover:bg-white hover:shadow-sm border border-transparent hover:border-slate-200 transition-all duration-200"
+                    className="group flex gap-3.5 cursor-pointer rounded-xl px-4 py-2.5 -mx-4 hover:bg-white dark:hover:bg-slate-800 hover:shadow-sm border border-transparent hover:border-slate-200 dark:hover:border-slate-700 transition-all duration-200"
                   >
                     <span className="text-blue-300 mt-1 shrink-0 text-xs">▸</span>
-                    <span className="text-slate-600 text-[15px] leading-relaxed flex-1 group-hover:text-slate-800 transition-colors">
+                    <span className="text-slate-600 dark:text-slate-300 text-[15px] leading-relaxed flex-1 group-hover:text-slate-800 dark:group-hover:text-slate-100 transition-colors">
                       {bullet}
                     </span>
                     <ExpandIcon />
@@ -101,11 +101,11 @@ export default function Experience({ data, onExpand }) {
 
             {/* Notable customers */}
             {job.notableCustomers && (
-              <div className="mt-5 pt-4 border-t border-slate-100">
-                <span className="text-[11px] font-semibold uppercase tracking-widest text-slate-400">
+              <div className="mt-5 pt-4 border-t border-slate-100 dark:border-slate-800">
+                <span className="text-[11px] font-semibold uppercase tracking-widest text-slate-400 dark:text-slate-500">
                   Notable Customers
                 </span>
-                <p className="mt-1.5 text-sm text-slate-400 leading-relaxed">
+                <p className="mt-1.5 text-sm text-slate-400 dark:text-slate-500 leading-relaxed">
                   {job.notableCustomers.join(' · ')}
                 </p>
               </div>

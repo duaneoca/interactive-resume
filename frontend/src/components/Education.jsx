@@ -17,11 +17,11 @@ export default function Education({ data, onExpand }) {
                 chatPrompt: `Tell me about your education at ${edu.school} and how it shaped your career.`,
               })
             }
-            className="group flex items-baseline gap-4 cursor-pointer rounded-xl px-5 py-3.5 -mx-5 hover:bg-white hover:shadow-sm border border-transparent hover:border-slate-200 transition-all duration-200"
+            className="group flex items-baseline gap-4 cursor-pointer rounded-xl px-5 py-3.5 -mx-5 hover:bg-white dark:hover:bg-slate-800 hover:shadow-sm border border-transparent hover:border-slate-200 dark:hover:border-slate-700 transition-all duration-200"
           >
-            <span className="font-semibold text-slate-900">{edu.degree}</span>
-            <span className="text-slate-400">·</span>
-            <span className="text-slate-600">{edu.school}</span>
+            <span className="font-semibold text-slate-900 dark:text-white">{edu.degree}</span>
+            <span className="text-slate-400 dark:text-slate-600">·</span>
+            <span className="text-slate-600 dark:text-slate-300">{edu.school}</span>
             <svg
               className="w-3.5 h-3.5 text-blue-400 ml-auto opacity-0 group-hover:opacity-100 transition-opacity"
               fill="none"

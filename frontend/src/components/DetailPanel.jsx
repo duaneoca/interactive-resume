@@ -25,12 +25,12 @@ export default function DetailPanel({ item, onClose }) {
 
       {/* Panel */}
       <div
-        className={`fixed top-0 right-0 h-full w-full max-w-md bg-white shadow-2xl z-50 flex flex-col transition-transform duration-300 ease-out ${
+        className={`fixed top-0 right-0 h-full w-full max-w-md bg-white dark:bg-slate-800 shadow-2xl z-50 flex flex-col transition-transform duration-300 ease-out ${
           isOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
         {/* Panel header */}
-        <div className="flex items-center justify-between px-6 py-5 border-b border-slate-100">
+        <div className="flex items-center justify-between px-6 py-5 border-b border-slate-100 dark:border-slate-700">
           {item ? (
             <span className="text-xs font-semibold uppercase tracking-widest text-blue-600">
               {item.type}
@@ -40,7 +40,7 @@ export default function DetailPanel({ item, onClose }) {
           )}
           <button
             onClick={onClose}
-            className="p-1.5 rounded-lg hover:bg-slate-100 text-slate-400 hover:text-slate-600 transition-colors"
+            className="p-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors"
             aria-label="Close panel"
           >
             <CloseIcon />
@@ -51,14 +51,14 @@ export default function DetailPanel({ item, onClose }) {
         <div className="flex-1 overflow-y-auto px-6 py-6">
           {item && (
             <div>
-              <h2 className="text-xl font-bold text-slate-900 mb-1 leading-snug">
+              <h2 className="text-xl font-bold text-slate-900 dark:text-white mb-1 leading-snug">
                 {item.title}
               </h2>
               {item.subtitle && (
-                <p className="text-sm text-slate-400 mb-5 italic">{item.subtitle}</p>
+                <p className="text-sm text-slate-400 dark:text-slate-500 mb-5 italic">{item.subtitle}</p>
               )}
 
-              <div className="mt-5 text-slate-600 text-[15px] leading-relaxed space-y-4">
+              <div className="mt-5 text-slate-600 dark:text-slate-300 text-[15px] leading-relaxed space-y-4">
                 {Array.isArray(item.content) ? (
                   <ul className="space-y-3">
                     {item.content.map((line, i) => (
@@ -74,8 +74,8 @@ export default function DetailPanel({ item, onClose }) {
               </div>
 
               {/* AI chat prompt — wired up in Phase 2 */}
-              <div className="mt-8 rounded-xl bg-slate-50 border border-slate-200 p-5">
-                <p className="text-xs text-slate-500 mb-4 leading-relaxed">
+              <div className="mt-8 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 p-5">
+                <p className="text-xs text-slate-500 dark:text-slate-400 mb-4 leading-relaxed">
                   The AI assistant can answer follow-up questions about this area of Duane's background.
                 </p>
                 <button

@@ -16,7 +16,7 @@ export default function App() {
   const closeDetail = () => setPanelItem(null)
 
   return (
-    <div className="min-h-screen bg-slate-50 font-sans">
+    <div className="min-h-screen bg-slate-50 dark:bg-slate-900 font-sans">
       <div className="max-w-3xl mx-auto px-6 py-16">
         <Header data={resumeData} />
         <div className="mt-14 space-y-14">
@@ -26,7 +26,7 @@ export default function App() {
           <Experience data={resumeData.experience} onExpand={openDetail} />
           <Education data={resumeData.education} onExpand={openDetail} />
         </div>
-        <footer className="mt-20 pt-8 border-t border-slate-200 text-center text-xs text-slate-400">
+        <footer className="mt-20 pt-8 border-t border-slate-200 dark:border-slate-700 text-center text-xs text-slate-400 dark:text-slate-600">
           © {new Date().getFullYear()} Duane Pinkerton
         </footer>
       </div>

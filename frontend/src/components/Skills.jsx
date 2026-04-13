@@ -16,16 +16,16 @@ export default function Skills({ data, onExpand }) {
                 chatPrompt: `Tell me more about your ${skillGroup.category} skills and how you've applied them.`,
               })
             }
-            className="group flex items-start gap-6 cursor-pointer rounded-xl px-5 py-3.5 -mx-5 hover:bg-white hover:shadow-sm border border-transparent hover:border-slate-200 transition-all duration-200"
+            className="group flex items-start gap-6 cursor-pointer rounded-xl px-5 py-3.5 -mx-5 hover:bg-white dark:hover:bg-slate-800 hover:shadow-sm border border-transparent hover:border-slate-200 dark:hover:border-slate-700 transition-all duration-200"
           >
-            <div className="w-44 shrink-0 text-sm font-semibold text-slate-700 pt-0.5">
+            <div className="w-44 shrink-0 text-sm font-semibold text-slate-700 dark:text-slate-200 pt-0.5">
               {skillGroup.category}
             </div>
             <div className="flex flex-wrap gap-2 flex-1">
               {skillGroup.items.map((item) => (
                 <span
                   key={item}
-                  className="px-2.5 py-1 bg-slate-100 group-hover:bg-slate-50 text-slate-600 text-xs rounded-full transition-colors"
+                  className="px-2.5 py-1 bg-slate-100 dark:bg-slate-700 group-hover:bg-slate-50 dark:group-hover:bg-slate-600 text-slate-600 dark:text-slate-300 text-xs rounded-full transition-colors"
                 >
                   {item}
                 </span>

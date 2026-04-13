@@ -15,9 +15,9 @@ export default function Summary({ data, onExpand }) {
       <SectionHeader title="Summary" />
       <div
         onClick={handleClick}
-        className="group cursor-pointer rounded-xl p-5 -mx-5 hover:bg-white hover:shadow-sm border border-transparent hover:border-slate-200 transition-all duration-200"
+        className="group cursor-pointer rounded-xl p-5 -mx-5 hover:bg-white dark:hover:bg-slate-800 hover:shadow-sm border border-transparent hover:border-slate-200 dark:hover:border-slate-700 transition-all duration-200"
       >
-        <p className="text-slate-600 leading-relaxed text-[15px]">{data}</p>
+        <p className="text-slate-600 dark:text-slate-300 leading-relaxed text-[15px]">{data}</p>
         <span className="mt-3 inline-flex items-center gap-1 text-xs text-blue-500 opacity-0 group-hover:opacity-100 transition-opacity">
           <span>expand</span>
           <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
