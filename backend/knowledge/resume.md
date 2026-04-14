@@ -55,7 +55,7 @@ He trained consultants and partners on implementation best practices and served 
 
 Following Oracle's acquisition and consolidation of the professional services organization, Duane transitioned into an operations role to preserve and evolve the platform. He made key architectural decisions around reliability, redundancy, and capacity planning.
 
-He led the migration of the entire environment from bare metal to a containerized infrastructure on OCI using Docker, Kubernetes, Git, and Jenkins — completed with zero significant downtime events.
+He led the migration of the entire environment from bare metal to a containerized infrastructure on OCI using Docker, Kubernetes, Git, and Jenkins — completed with zero significant downtime events. Note: Duane's primary ownership in this stack was Docker (container images and init scripts). Kubernetes configuration and Jenkins CI/CD pipelines were owned by a dedicated ops teammate; his role with those tools was as a knowledgeable user, not the builder.
 
 He was responsible for deploying the environment in new datacenters as the platform expanded.
 
