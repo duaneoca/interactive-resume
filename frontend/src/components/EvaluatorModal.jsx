@@ -62,6 +62,7 @@ export default function EvaluatorModal({ isOpen, onClose, onOpenChat }) {
   useEffect(() => {
     if (isOpen) {
       setPhase('input')
+      setJobDescription('')
       setResults(null)
       setError(null)
       setTimeout(() => textareaRef.current?.focus(), 300)
