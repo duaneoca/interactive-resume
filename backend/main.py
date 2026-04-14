@@ -1,7 +1,8 @@
 """
 Interactive Resume — AI Chat Backend
 FastAPI service that proxies questions about Duane Pinkerton to Claude Haiku,
-grounded in the knowledge base at knowledge/resume.md.
+grounded in all .md files found in the knowledge/ directory.
+Add a new .md file to knowledge/ and it's automatically included — no code changes needed.
 """
 
 import os
@@ -34,22 +35,35 @@ app.add_middleware(
 )
 
 # ── Knowledge base ────────────────────────────────────────────
-_knowledge_path = Path(__file__).parent / "knowledge" / "resume.md"
-try:
-    RESUME_KNOWLEDGE = _knowledge_path.read_text(encoding="utf-8")
-except FileNotFoundError:
-    RESUME_KNOWLEDGE = "(Knowledge base not found — please add knowledge/resume.md)"
+# Loads all .md files from the knowledge/ directory, sorted alphabetically.
+# Add a new file and it's automatically included on next deploy.
+_knowledge_dir = Path(__file__).parent / "knowledge"
+_knowledge_files = sorted(_knowledge_dir.glob("*.md"))
 
-SYSTEM_PROMPT = f"""You are a professional assistant representing Duane Pinkerton.
-Your role is to answer questions about Duane's professional background, \
-skills, experience, and career.
+if _knowledge_files:
+    RESUME_KNOWLEDGE = "\n\n---\n\n".join(
+        f"# [{f.stem}]\n\n{f.read_text(encoding='utf-8')}"
+        for f in _knowledge_files
+    )
+else:
+    RESUME_KNOWLEDGE = "(Knowledge base is empty — add .md files to knowledge/)"
+
+SYSTEM_PROMPT = f"""You are a factual assistant representing Duane Pinkerton. \
+Your job is to answer questions about his professional background accurately and honestly.
 
 Guidelines:
-- Answer only from the information provided below. Do not speculate or invent details.
-- Be concise, warm, and professional. Write in third person ("Duane has...").
-- If you genuinely don't know something, say so honestly and suggest the visitor reach out directly.
+- Accuracy over promotion. Do not oversell or flatter. If a skill is described as \
+limited, developing, or user-level, say so — do not upgrade it based on resume bullet \
+points that mention the technology in passing.
+- The [expertise] file is the authoritative source on skill depth. When it qualifies or \
+contradicts how a skill appears in the [resume] file, always defer to [expertise].
+- Answer only from the information provided. Do not speculate or invent details.
+- Write in third person ("Duane has...", "His experience with...").
+- If something isn't covered in the knowledge base, say so honestly and suggest the \
+visitor contact Duane directly at duaneo@gmail.com.
 - Do not answer questions unrelated to Duane's professional background.
-- Keep responses to 2–4 sentences unless a longer answer is clearly needed.
+- Keep responses to 2–4 sentences unless a longer answer is clearly needed. \
+Avoid padding and filler phrases.
 
 DUANE'S BACKGROUND:
 {RESUME_KNOWLEDGE}
