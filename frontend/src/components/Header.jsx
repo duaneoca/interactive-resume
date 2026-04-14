@@ -24,7 +24,7 @@ export default function Header({ data }) {
           {contact.github}
         </a>
       </div>
-      <div className="mt-8 border-t-2 border-blue-600 w-16" />
+      <div className="mt-8 border-t-2 border-blue-600" />
     </header>
   )
 }
