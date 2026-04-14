@@ -8,11 +8,13 @@ import Education from './components/Education'
 import DetailPanel from './components/DetailPanel'
 import ChatPanel from './components/ChatPanel'
 import ChatFab from './components/ChatFab'
+import EvaluatorModal from './components/EvaluatorModal'
 import { resumeData } from './data/resume'
 
 export default function App() {
   const [panelItem, setPanelItem] = useState(null)
   const [chatState, setChatState] = useState(null) // { context, initialPrompt }
+  const [evaluatorOpen, setEvaluatorOpen] = useState(false)
 
   const openDetail = (item) => {
     setChatState(null)
@@ -36,7 +38,7 @@ export default function App() {
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-900 font-sans">
       <div className="max-w-3xl mx-auto px-6 py-16">
-        <Header data={resumeData} />
+        <Header data={resumeData} onOpenEvaluator={() => setEvaluatorOpen(true)} />
         <div className="mt-14 space-y-14">
           <Summary data={resumeData.summary} onExpand={openDetail} />
           <Skills data={resumeData.skills} onExpand={openDetail} />
@@ -63,6 +65,12 @@ export default function App() {
       />
 
       <ChatFab onOpen={() => openChat()} />
+
+      <EvaluatorModal
+        isOpen={evaluatorOpen}
+        onClose={() => setEvaluatorOpen(false)}
+        onOpenChat={openChat}
+      />
     </div>
   )
 }

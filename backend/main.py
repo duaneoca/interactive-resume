@@ -5,7 +5,9 @@ grounded in all .md files found in the knowledge/ directory.
 Add a new .md file to knowledge/ and it's automatically included — no code changes needed.
 """
 
+import json
 import os
+import re
 from pathlib import Path
 
 import anthropic
@@ -69,6 +71,32 @@ DUANE'S BACKGROUND:
 {RESUME_KNOWLEDGE}
 """
 
+EVALUATE_PROMPT = f"""You are evaluating how well Duane Pinkerton matches a job description.
+Analyze the job description against his background and return a JSON object.
+
+Return this exact structure — raw JSON only, no markdown fences, no explanation:
+{{
+  "summary": "1-2 sentences: honest overall assessment of fit quality and the key reason",
+  "strong": [{{"area": "skill or experience area", "rationale": "one sentence"}}],
+  "transferable": [{{"area": "skill or experience area", "rationale": "one sentence"}}],
+  "gaps": [{{"area": "skill or experience area", "rationale": "one sentence"}}]
+}}
+
+Definitions:
+- strong: Direct, explicit alignment between the role's requirements and Duane's background
+- transferable: Adjacent experience that applies with context — not a perfect match, but relevant
+- gaps: Areas where the role requires something Duane lacks or has limited experience with
+
+Rules:
+- Be accurate and honest. Do not oversell. Genuine gaps should be listed as gaps.
+- Aim for 3–6 items per category. Empty arrays are fine if there are truly no items.
+- The [expertise] file is authoritative on skill depth — defer to it over resume bullet points.
+- Return ONLY valid JSON.
+
+DUANE'S BACKGROUND:
+{RESUME_KNOWLEDGE}
+"""
+
 # ── Anthropic client ──────────────────────────────────────────
 _api_key = os.getenv("ANTHROPIC_API_KEY")
 client = anthropic.Anthropic(api_key=_api_key) if _api_key else None
@@ -77,11 +105,27 @@ client = anthropic.Anthropic(api_key=_api_key) if _api_key else None
 # ── Schemas ───────────────────────────────────────────────────
 class ChatRequest(BaseModel):
     message: str
-    context: str | None = None  # pre-seeded context from clicked resume item
+    context: str | None = None
 
 
 class ChatResponse(BaseModel):
     response: str
+
+
+class EvaluateRequest(BaseModel):
+    job_description: str
+
+
+class FitItem(BaseModel):
+    area: str
+    rationale: str
+
+
+class EvaluateResponse(BaseModel):
+    summary: str
+    strong: list[FitItem]
+    transferable: list[FitItem]
+    gaps: list[FitItem]
 
 
 # ── Routes ────────────────────────────────────────────────────
@@ -100,7 +144,6 @@ def chat(request: Request, req: ChatRequest):
     if not user_message:
         raise HTTPException(status_code=400, detail="Message cannot be empty")
 
-    # Prepend clicked-item context if provided
     if req.context:
         user_message = f"[The visitor clicked on: {req.context}]\n\n{user_message}"
 
@@ -112,5 +155,39 @@ def chat(request: Request, req: ChatRequest):
             messages=[{"role": "user", "content": user_message}],
         )
         return ChatResponse(response=response.content[0].text)
+    except anthropic.APIError as e:
+        raise HTTPException(status_code=502, detail=f"Upstream API error: {e}")
+
+
+@app.post("/api/evaluate", response_model=EvaluateResponse)
+@limiter.limit("10/minute")
+def evaluate(request: Request, req: EvaluateRequest):
+    if not client:
+        raise HTTPException(status_code=503, detail="API key not configured")
+
+    job_description = req.job_description.strip()
+    if not job_description:
+        raise HTTPException(status_code=400, detail="Job description cannot be empty")
+    if len(job_description) > 12000:
+        raise HTTPException(status_code=400, detail="Job description too long (max 12,000 characters)")
+
+    prompt = f"{EVALUATE_PROMPT}\n\nJOB DESCRIPTION TO EVALUATE:\n{job_description}"
+
+    try:
+        response = client.messages.create(
+            model="claude-haiku-4-5-20251001",
+            max_tokens=2048,
+            messages=[{"role": "user", "content": prompt}],
+        )
+        raw = response.content[0].text.strip()
+
+        # Strip markdown code fences if the model added them anyway
+        raw = re.sub(r"^```(?:json)?\s*", "", raw)
+        raw = re.sub(r"\s*```$", "", raw)
+
+        data = json.loads(raw)
+        return EvaluateResponse(**data)
+    except json.JSONDecodeError as e:
+        raise HTTPException(status_code=502, detail=f"Failed to parse evaluation: {e}")
     except anthropic.APIError as e:
         raise HTTPException(status_code=502, detail=f"Upstream API error: {e}")
