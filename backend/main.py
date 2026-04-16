@@ -8,13 +8,15 @@ Add a new .md file to knowledge/ and it's automatically included — no code cha
 import json
 import os
 import re
+import threading
+from datetime import date
 from pathlib import Path
 
 import anthropic
 from dotenv import load_dotenv
 from fastapi import FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 from slowapi import Limiter, _rate_limit_exceeded_handler
 from slowapi.errors import RateLimitExceeded
 from slowapi.util import get_remote_address
@@ -23,6 +25,35 @@ load_dotenv()
 
 # ── Rate limiter ─────────────────────────────────────────────
 limiter = Limiter(key_func=get_remote_address)
+
+# ── Daily cap ─────────────────────────────────────────────────
+# Simple in-memory counter. Resets automatically each calendar day.
+# Values are intentionally generous — this is a resume site, not a product.
+DAILY_LIMITS = {"chat": 300, "evaluate": 75}
+
+_cap_lock = threading.Lock()
+_cap_counts: dict[str, int] = {"chat": 0, "evaluate": 0}
+_cap_date: date = date.today()
+
+
+def _check_daily_cap(endpoint: str) -> None:
+    """Increment the daily counter for *endpoint* and raise 429 if over limit."""
+    global _cap_date, _cap_counts
+    with _cap_lock:
+        today = date.today()
+        if today != _cap_date:          # new day — reset counters
+            _cap_date = today
+            _cap_counts = {k: 0 for k in _cap_counts}
+        _cap_counts[endpoint] += 1
+        if _cap_counts[endpoint] > DAILY_LIMITS[endpoint]:
+            raise HTTPException(
+                status_code=429,
+                detail=(
+                    f"Daily request limit reached for this service "
+                    f"({DAILY_LIMITS[endpoint]}/day). Please try again tomorrow, "
+                    f"or contact Duane directly at duane@hire-duane.org."
+                ),
+            )
 
 # ── App setup ────────────────────────────────────────────────
 app = FastAPI(title="Interactive Resume API", version="1.0.0")
@@ -104,8 +135,8 @@ client = anthropic.Anthropic(api_key=_api_key) if _api_key else None
 
 # ── Schemas ───────────────────────────────────────────────────
 class ChatRequest(BaseModel):
-    message: str
-    context: str | None = None
+    message: str = Field(..., min_length=1, max_length=2000)
+    context: str | None = Field(default=None, max_length=500)
 
 
 class ChatResponse(BaseModel):
@@ -113,7 +144,7 @@ class ChatResponse(BaseModel):
 
 
 class EvaluateRequest(BaseModel):
-    job_description: str
+    job_description: str = Field(..., min_length=1, max_length=10000)
 
 
 class FitItem(BaseModel):
@@ -137,12 +168,11 @@ def health():
 @app.post("/api/chat", response_model=ChatResponse)
 @limiter.limit("20/minute")
 def chat(request: Request, req: ChatRequest):
+    _check_daily_cap("chat")
     if not client:
         raise HTTPException(status_code=503, detail="API key not configured")
 
     user_message = req.message.strip()
-    if not user_message:
-        raise HTTPException(status_code=400, detail="Message cannot be empty")
 
     if req.context:
         user_message = f"[The visitor clicked on: {req.context}]\n\n{user_message}"
@@ -162,14 +192,11 @@ def chat(request: Request, req: ChatRequest):
 @app.post("/api/evaluate", response_model=EvaluateResponse)
 @limiter.limit("10/minute")
 def evaluate(request: Request, req: EvaluateRequest):
+    _check_daily_cap("evaluate")
     if not client:
         raise HTTPException(status_code=503, detail="API key not configured")
 
     job_description = req.job_description.strip()
-    if not job_description:
-        raise HTTPException(status_code=400, detail="Job description cannot be empty")
-    if len(job_description) > 12000:
-        raise HTTPException(status_code=400, detail="Job description too long (max 12,000 characters)")
 
     prompt = f"{EVALUATE_PROMPT}\n\nJOB DESCRIPTION TO EVALUATE:\n{job_description}"
 

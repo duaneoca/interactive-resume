@@ -28,7 +28,7 @@ spec:
                   name: resume-secrets
                   key: anthropic-api-key
             - name: ALLOWED_ORIGINS
-              value: "https://hire-duane.org"
+              value: "https://hire-duane.org" 
           resources:
             requests:
               memory: "128Mi"
