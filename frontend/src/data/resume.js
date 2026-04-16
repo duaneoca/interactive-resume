@@ -2,7 +2,7 @@ export const resumeData = {
   name: "Duane Pinkerton",
   contact: {
     email: "duane@hire-duane.org",
-    phone: "510.541.0141",
+    phone: "510.519.1105",
     location: "Oakland, CA",
     github: "github.com/duaneoca",
   },
