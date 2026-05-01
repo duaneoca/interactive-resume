@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Header from './components/Header'
 import Summary from './components/Summary'
 import Skills from './components/Skills'
@@ -16,6 +16,14 @@ export default function App() {
   const [chatState, setChatState] = useState(null) // { context, initialPrompt }
   const [evaluatorOpen, setEvaluatorOpen] = useState(false)
 
+  useEffect(() => {
+    fetch('/api/visit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ referrer: document.referrer || null }),
+    }).catch(() => {})
+  }, [])
+
   const openDetail = (item) => {
     setChatState(null)
     setPanelItem(item)
@@ -26,6 +34,11 @@ export default function App() {
   const openChat = (context = null, initialPrompt = null) => {
     setPanelItem(null)
     setChatState({ context, initialPrompt })
+    fetch('/api/track', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ event: 'chat_opened' }),
+    }).catch(() => {})
   }
 
   const closeChat = () => setChatState(null)

@@ -89,6 +89,11 @@ export default function EvaluatorModal({ isOpen, onClose, onOpenChat }) {
       const data = await res.json()
       setResults(data)
       setPhase('results')
+      fetch('/api/track', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ event: 'job_evaluated' }),
+      }).catch(() => {})
     } catch (e) {
       setError(e.message)
       setPhase('input')

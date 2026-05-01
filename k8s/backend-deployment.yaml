@@ -27,8 +27,15 @@ spec:
                 secretKeyRef:
                   name: resume-secrets
                   key: anthropic-api-key
+            - name: ADMIN_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: resume-secrets
+                  key: admin-token
+            - name: DB_PATH
+              value: "/data/analytics.db"
             - name: ALLOWED_ORIGINS
-              value: "https://hire-duane.org" 
+              value: "https://hire-duane.org"
           resources:
             requests:
               memory: "128Mi"
@@ -36,6 +43,9 @@ spec:
             limits:
               memory: "256Mi"
               cpu: "500m"
+          volumeMounts:
+            - name: analytics-data
+              mountPath: /data
           livenessProbe:
             httpGet:
               path: /health
@@ -48,6 +58,10 @@ spec:
               port: 8000
             initialDelaySeconds: 5
             periodSeconds: 10
+      volumes:
+        - name: analytics-data
+          persistentVolumeClaim:
+            claimName: analytics-pvc
 ---
 apiVersion: v1
 kind: Service

@@ -8,13 +8,15 @@ Add a new .md file to knowledge/ and it's automatically included — no code cha
 import json
 import os
 import re
+import socket
+import sqlite3
 import threading
-from datetime import date
+from datetime import date, datetime
 from pathlib import Path
 
 import anthropic
 from dotenv import load_dotenv
-from fastapi import FastAPI, HTTPException, Request
+from fastapi import BackgroundTasks, FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
 from slowapi import Limiter, _rate_limit_exceeded_handler
@@ -22,6 +24,60 @@ from slowapi.errors import RateLimitExceeded
 from slowapi.util import get_remote_address
 
 load_dotenv()
+
+# ── Analytics ─────────────────────────────────────────────────
+_ISP_PATTERNS = (
+    "comcast.net", "xfinity.com", "verizon.net", "fios.verizon.net",
+    "cox.net", "att.net", "att.com", "sbcglobal.net", "bellsouth.net",
+    "charter.com", "spectrum.net", "rr.com", "twc.com", "hsd1.",
+    "res.rr.com", "dsl.", "cable.", "dynamic.", "pool.", "dhcp.",
+    "residential", "cust.", "home.", "static.", "user.",
+)
+
+ADMIN_TOKEN = os.getenv("ADMIN_TOKEN", "")
+DB_PATH = os.getenv("DB_PATH", "./analytics.db")
+
+
+def _init_db() -> None:
+    with sqlite3.connect(DB_PATH) as conn:
+        conn.execute("PRAGMA journal_mode=WAL")
+        conn.execute("""
+            CREATE TABLE IF NOT EXISTS visits (
+                id       INTEGER PRIMARY KEY AUTOINCREMENT,
+                ts       TEXT NOT NULL,
+                referrer TEXT,
+                domain   TEXT
+            )
+        """)
+        conn.execute("""
+            CREATE TABLE IF NOT EXISTS events (
+                id   INTEGER PRIMARY KEY AUTOINCREMENT,
+                ts   TEXT NOT NULL,
+                name TEXT NOT NULL
+            )
+        """)
+        conn.commit()
+
+
+_init_db()
+
+
+def _log_visitor(ip: str, referrer: str | None) -> None:
+    domain = None
+    try:
+        hostname = socket.gethostbyaddr(ip)[0].lower()
+        if not any(p in hostname for p in _ISP_PATTERNS):
+            domain = hostname
+    except (socket.herror, socket.gaierror):
+        pass
+    ts = datetime.utcnow().isoformat() + "Z"
+    with sqlite3.connect(DB_PATH) as conn:
+        conn.execute(
+            "INSERT INTO visits (ts, referrer, domain) VALUES (?, ?, ?)",
+            (ts, referrer or None, domain),
+        )
+        conn.commit()
+
 
 # ── Rate limiter ─────────────────────────────────────────────
 limiter = Limiter(key_func=get_remote_address)
@@ -134,6 +190,14 @@ client = anthropic.Anthropic(api_key=_api_key) if _api_key else None
 
 
 # ── Schemas ───────────────────────────────────────────────────
+class VisitRequest(BaseModel):
+    referrer: str | None = None
+
+
+class TrackRequest(BaseModel):
+    event: str
+
+
 class ChatRequest(BaseModel):
     message: str = Field(..., min_length=1, max_length=2000)
     context: str | None = Field(default=None, max_length=500)
@@ -163,6 +227,56 @@ class EvaluateResponse(BaseModel):
 @app.get("/health")
 def health():
     return {"status": "ok", "knowledge_loaded": bool(RESUME_KNOWLEDGE)}
+
+
+@app.post("/api/visit")
+def visit(request: Request, req: VisitRequest, background_tasks: BackgroundTasks):
+    ip = get_remote_address(request)
+    background_tasks.add_task(_log_visitor, ip, req.referrer)
+    return {"ok": True}
+
+
+@app.post("/api/track")
+def track(req: TrackRequest):
+    if req.event not in {"chat_opened", "job_evaluated"}:
+        raise HTTPException(status_code=400, detail="Unknown event")
+    ts = datetime.utcnow().isoformat() + "Z"
+    with sqlite3.connect(DB_PATH) as conn:
+        conn.execute("INSERT INTO events (ts, name) VALUES (?, ?)", (ts, req.event))
+        conn.commit()
+    return {"ok": True}
+
+
+@app.get("/api/admin/stats")
+def admin_stats(request: Request):
+    auth = request.headers.get("Authorization", "")
+    if not ADMIN_TOKEN or auth != f"Bearer {ADMIN_TOKEN}":
+        raise HTTPException(status_code=401, detail="Unauthorized")
+    with sqlite3.connect(DB_PATH) as conn:
+        total_visits = conn.execute("SELECT COUNT(*) FROM visits").fetchone()[0]
+        chat_opens = conn.execute(
+            "SELECT COUNT(*) FROM events WHERE name = 'chat_opened'"
+        ).fetchone()[0]
+        job_evals = conn.execute(
+            "SELECT COUNT(*) FROM events WHERE name = 'job_evaluated'"
+        ).fetchone()[0]
+        referrers = conn.execute("""
+            SELECT referrer, COUNT(*) AS cnt FROM visits
+            WHERE referrer IS NOT NULL AND referrer != ''
+            GROUP BY referrer ORDER BY cnt DESC LIMIT 20
+        """).fetchall()
+        domains = conn.execute("""
+            SELECT domain, ts FROM visits
+            WHERE domain IS NOT NULL
+            ORDER BY ts DESC LIMIT 100
+        """).fetchall()
+    return {
+        "total_visits": total_visits,
+        "chat_opens": chat_opens,
+        "job_evaluations": job_evals,
+        "top_referrers": [{"referrer": r[0], "count": r[1]} for r in referrers],
+        "interesting_domains": [{"domain": d[0], "ts": d[1]} for d in domains],
+    }
 
 
 @app.post("/api/chat", response_model=ChatResponse)
