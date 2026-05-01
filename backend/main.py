@@ -18,6 +18,7 @@ import anthropic
 from dotenv import load_dotenv
 from fastapi import BackgroundTasks, FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import HTMLResponse
 from pydantic import BaseModel, Field
 from slowapi import Limiter, _rate_limit_exceeded_handler
 from slowapi.errors import RateLimitExceeded
@@ -245,6 +246,132 @@ def track(req: TrackRequest):
         conn.execute("INSERT INTO events (ts, name) VALUES (?, ?)", (ts, req.event))
         conn.commit()
     return {"ok": True}
+
+
+@app.get("/api/admin", response_class=HTMLResponse)
+def admin_dashboard():
+    return """<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resume Analytics</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: system-ui, sans-serif; background: #0f172a; color: #e2e8f0; min-height: 100vh; padding: 2rem 1rem; }
+    h1 { font-size: 1.25rem; font-weight: 600; color: #f8fafc; margin-bottom: 1.5rem; }
+    #login { max-width: 400px; margin: 6rem auto; }
+    #login p { color: #94a3b8; margin-bottom: 1rem; font-size: 0.9rem; }
+    input[type=password] { width: 100%; padding: 0.6rem 0.9rem; border-radius: 8px; border: 1px solid #334155; background: #1e293b; color: #f1f5f9; font-size: 0.95rem; outline: none; }
+    input[type=password]:focus { border-color: #3b82f6; }
+    button { margin-top: 0.75rem; width: 100%; padding: 0.6rem; border-radius: 8px; background: #3b82f6; color: white; font-size: 0.95rem; font-weight: 500; border: none; cursor: pointer; }
+    button:hover { background: #2563eb; }
+    #error { color: #f87171; font-size: 0.85rem; margin-top: 0.5rem; }
+    #dashboard { max-width: 800px; margin: 0 auto; display: none; }
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 2rem; }
+    .card { background: #1e293b; border-radius: 12px; padding: 1.25rem 1.5rem; }
+    .card .label { font-size: 0.75rem; color: #64748b; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.4rem; }
+    .card .value { font-size: 2rem; font-weight: 700; color: #f8fafc; }
+    .section { background: #1e293b; border-radius: 12px; padding: 1.25rem 1.5rem; margin-bottom: 1rem; }
+    .section h2 { font-size: 0.8rem; color: #64748b; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.875rem; }
+    td { padding: 0.45rem 0; border-bottom: 1px solid #0f172a; color: #cbd5e1; }
+    td:last-child { text-align: right; color: #94a3b8; }
+    .empty { color: #475569; font-size: 0.85rem; font-style: italic; }
+    #logout { float: right; background: none; border: 1px solid #334155; color: #64748b; width: auto; padding: 0.3rem 0.75rem; font-size: 0.8rem; margin-top: -0.25rem; }
+    #logout:hover { color: #e2e8f0; border-color: #475569; background: none; }
+  </style>
+</head>
+<body>
+  <div id="login">
+    <h1>Resume Analytics</h1>
+    <p>Enter your admin token to view stats.</p>
+    <input type="password" id="token" placeholder="Admin token" />
+    <button onclick="load()">View Stats</button>
+    <div id="error"></div>
+  </div>
+
+  <div id="dashboard">
+    <h1>Resume Analytics <button id="logout" onclick="logout()">Sign out</button></h1>
+    <div class="grid">
+      <div class="card"><div class="label">Total Visits</div><div class="value" id="stat-visits">—</div></div>
+      <div class="card"><div class="label">Chat Opens</div><div class="value" id="stat-chats">—</div></div>
+      <div class="card"><div class="label">Job Evaluations</div><div class="value" id="stat-evals">—</div></div>
+    </div>
+    <div class="section">
+      <h2>Top Referrers</h2>
+      <div id="referrers"></div>
+    </div>
+    <div class="section">
+      <h2>Interesting Domains</h2>
+      <div id="domains"></div>
+    </div>
+  </div>
+
+  <script>
+    const stored = sessionStorage.getItem('admin_token');
+    if (stored) load(stored);
+
+    document.getElementById('token').addEventListener('keydown', e => {
+      if (e.key === 'Enter') load();
+    });
+
+    async function load(tok) {
+      const token = tok || document.getElementById('token').value.trim();
+      if (!token) return;
+      document.getElementById('error').textContent = '';
+      try {
+        const res = await fetch('/api/admin/stats', {
+          headers: { 'Authorization': 'Bearer ' + token }
+        });
+        if (res.status === 401) {
+          sessionStorage.removeItem('admin_token');
+          document.getElementById('error').textContent = 'Invalid token.';
+          return;
+        }
+        const data = await res.json();
+        sessionStorage.setItem('admin_token', token);
+        render(data);
+      } catch (e) {
+        document.getElementById('error').textContent = 'Could not reach server.';
+      }
+    }
+
+    function render(d) {
+      document.getElementById('login').style.display = 'none';
+      document.getElementById('dashboard').style.display = 'block';
+      document.getElementById('stat-visits').textContent = d.total_visits;
+      document.getElementById('stat-chats').textContent = d.chat_opens;
+      document.getElementById('stat-evals').textContent = d.job_evaluations;
+
+      const refs = document.getElementById('referrers');
+      if (d.top_referrers.length === 0) {
+        refs.innerHTML = '<p class="empty">No referrer data yet.</p>';
+      } else {
+        refs.innerHTML = '<table>' + d.top_referrers.map(r =>
+          `<tr><td>${r.referrer}</td><td>${r.count}</td></tr>`
+        ).join('') + '</table>';
+      }
+
+      const doms = document.getElementById('domains');
+      if (d.interesting_domains.length === 0) {
+        doms.innerHTML = '<p class="empty">No business domains detected yet.</p>';
+      } else {
+        doms.innerHTML = '<table>' + d.interesting_domains.map(d =>
+          `<tr><td>${d.domain}</td><td>${d.ts.replace('T',' ').replace('Z','') + ' UTC'}</td></tr>`
+        ).join('') + '</table>';
+      }
+    }
+
+    function logout() {
+      sessionStorage.removeItem('admin_token');
+      document.getElementById('dashboard').style.display = 'none';
+      document.getElementById('login').style.display = 'block';
+      document.getElementById('token').value = '';
+    }
+  </script>
+</body>
+</html>"""
 
 
 @app.get("/api/admin/stats")
