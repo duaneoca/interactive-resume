@@ -33,6 +33,7 @@ _ISP_PATTERNS = (
     "charter.com", "spectrum.net", "rr.com", "twc.com", "hsd1.",
     "res.rr.com", "dsl.", "cable.", "dynamic.", "pool.", "dhcp.",
     "residential", "cust.", "home.", "static.", "user.",
+    "cluster.local",  # k8s internal traffic
 )
 
 ADMIN_TOKEN = os.getenv("ADMIN_TOKEN", "")
@@ -232,7 +233,8 @@ def health():
 
 @app.post("/api/visit")
 def visit(request: Request, req: VisitRequest, background_tasks: BackgroundTasks):
-    ip = get_remote_address(request)
+    forwarded_for = request.headers.get("X-Forwarded-For")
+    ip = forwarded_for.split(",")[0].strip() if forwarded_for else get_remote_address(request)
     background_tasks.add_task(_log_visitor, ip, req.referrer)
     return {"ok": True}
 
