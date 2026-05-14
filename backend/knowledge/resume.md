@@ -1,7 +1,7 @@
-# Duane Pinkerton — Professional Background
+# Duane Pinkerton: Professional Background
 
 ## Contact
-- Email: duaneo@gmail.com
+- Email: duane@hire-duane.org
 - Location: Oakland, CA
 - GitHub: github.com/duaneoca
 
@@ -9,7 +9,7 @@
 
 ## Summary
 
-Twenty-six years in technical professional services, consistently at the intersection of deep implementation work and direct customer engagement. Career built around a specific loop: sit with a customer, understand what they actually need, figure out where the product falls short, and go write the missing piece. Has built data pipelines and integration systems from scratch, owned them end-to-end through production at enterprise scale, and made the architectural decisions about how they grow. Drawn to understanding how systems work — and to making them work better.
+Twenty-six years in technical professional services, consistently at the intersection of deep implementation work and direct customer engagement. Career built around a specific loop: sit with a customer, understand what they actually need, figure out where the product falls short, and go write the missing piece. Has built data pipelines and integration systems from scratch, owned them end-to-end through production at enterprise scale, and made the architectural decisions about how they grow. Drawn to understanding how systems work, and to making them work better.
 
 ---
 
@@ -29,17 +29,17 @@ Twenty-six years in technical professional services, consistently at the interse
 
 Actively building hands-on experience in AI and modern infrastructure:
 
-- Building AI agents and agentic workflows for Home Assistant using prompt engineering — natural-language control of automations, device states, and scenes through conversational AI
-- Using LLMs to diagnose system and configuration issues in Home Assistant — treating AI as a knowledgeable first-responder for troubleshooting
+- Building AI agents and agentic workflows for Home Assistant using prompt engineering: natural-language control of automations, device states, and scenes through conversational AI
+- Using LLMs to diagnose system and configuration issues in Home Assistant, treating AI as a knowledgeable first-responder for troubleshooting
 - Building workflow orchestration pipelines in n8n, connecting APIs and services in ways that weren't practical before LLMs
-- Completing Anthropic's AI Academy
-- Building an application that uses AI both as a development tool and as a runtime feature — currently in early design and development (this interactive resume site is part of that effort)
+- Deployed OpenBrain, Model Context Protocol (MCP) servers, and custom AI agents to automate complex workflows: persistent, model-agnostic memory infrastructure using PostgreSQL + pgvector via Supabase, accessible across multiple AI clients through MCP
+- Building an application that uses AI both as a development tool and as a runtime feature; this interactive resume site (hire-duane.org) is a live example of that effort
 
 ---
 
 ## Experience
 
-### Responsys / Oracle — 2007 to 2026
+### Responsys / Oracle (2007-2026)
 
 **Titles held (in progression):** Principal Professional Solutions Consultant → Data Architect → Solutions Architect → Principal Applications Engineer, Operations
 
@@ -55,7 +55,7 @@ He trained consultants and partners on implementation best practices and served 
 
 Following Oracle's acquisition and consolidation of the professional services organization, Duane transitioned into an operations role to preserve and evolve the platform. He made key architectural decisions around reliability, redundancy, and capacity planning.
 
-He led the migration of the entire environment from bare metal to a containerized infrastructure on OCI using Docker, Kubernetes, Git, and Jenkins — completed with zero significant downtime events. Note: Duane's primary ownership in this stack was Docker (container images and init scripts). Kubernetes configuration and Jenkins CI/CD pipelines were owned by a dedicated ops teammate; his role with those tools was as a knowledgeable user, not the builder.
+He led the migration of the entire environment from bare metal to a containerized infrastructure on OCI using Docker, Kubernetes, Git, and Jenkins, completed with zero significant downtime events. Note: Duane's primary ownership in this stack was Docker (container images and init scripts). Kubernetes configuration and Jenkins CI/CD pipelines were owned by a dedicated ops teammate; his role with those tools was as a knowledgeable user, not the builder.
 
 He was responsible for deploying the environment in new datacenters as the platform expanded.
 
@@ -63,17 +63,17 @@ He was responsible for deploying the environment in new datacenters as the platf
 
 ---
 
-### Extensity / Geac / Infor — 1999 to 2007
+### Extensity / Geac / Infor (1999-2007)
 
 **Titles held:** Principal Professional Services Consultant → Team Lead, Custom Solutions Group
 
-Duane owned end-to-end delivery of enterprise software implementations — from discovery through training and support handover — for a portfolio of complex domestic and international clients.
+Duane owned end-to-end delivery of enterprise software implementations, from discovery through training and support handover, for a portfolio of complex domestic and international clients.
 
-He built multi-currency and exchange rate support from scratch, enabling the company's first international enterprise deployments — including rollouts for Cisco and Sybase across their global offices. Those capabilities were later incorporated into the product itself.
+He built multi-currency and exchange rate support from scratch, enabling the company's first international enterprise deployments, including rollouts for Cisco and Sybase across their global offices. Those capabilities were later incorporated into the product itself.
 
 He worked directly with engineering to get bug fixes and code changes into the codebase.
 
-He spent 18 months in the UK as the lead technical member of the founding professional services team — trained and mentored three colleagues and was hands-on across all client implementations.
+He spent 18 months in the UK as the lead technical member of the founding professional services team, trained and mentored three colleagues and was hands-on across all client implementations.
 
 He led a team of professional services developers implementing custom solutions across the client base.
 
@@ -83,7 +83,7 @@ He led a team of professional services developers implementing custom solutions 
 
 ## Education
 
-**Bachelor of Arts in Computer Science** — UC Berkeley
+**Bachelor of Arts in Computer Science** at UC Berkeley
 
 ---
 
@@ -91,10 +91,10 @@ He led a team of professional services developers implementing custom solutions 
 
 - Duane has approximately 26 years of professional experience total.
 - His career spans two long-tenure roles, both in professional services / consulting.
-- A recurring theme is building things that didn't exist and then owning them long-term — frameworks, integrations, infrastructure.
+- A recurring theme is building things that didn't exist and then owning them long-term: frameworks, integrations, infrastructure.
 - He is comfortable at both the technical implementation level and the customer-facing consulting level.
 - His recent independent work focuses heavily on AI (agents, LLMs, prompt engineering) and modern infrastructure (containers, Kubernetes, automation).
 - This interactive resume site itself is an example of his current AI + infrastructure work.
-- If asked about salary, availability, or specific personal details not listed here, suggest the visitor contact Duane directly at duaneo@gmail.com.
+- If asked about salary, availability, or specific personal details not listed here, suggest the visitor contact Duane directly at duane@hire-duane.org.
 
 <!-- TODO: Expand this file through Q&A sessions to add richer narrative detail, anecdotes, and context for each section. -->
