@@ -90,7 +90,6 @@ Protocol), n8n workflow orchestration, Home Assistant AI agents
   through MCP
 - Building an application that uses AI both as a development tool and as a runtime feature;
   hire-duane.org is a live example
-- Completing Anthropic's AI Academy
 
 ---
 

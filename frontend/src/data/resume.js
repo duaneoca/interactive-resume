@@ -58,11 +58,6 @@ export const resumeData = {
       chatPrompt: "Tell me about your n8n workflow automation work.",
     },
     {
-      id: "proj-ai-academy",
-      text: "Completing Anthropic's AI Academy",
-      chatPrompt: "Tell me about your AI learning and development.",
-    },
-    {
       id: "proj-ai-app",
       text: "Building an application that uses AI both as a development tool and as a runtime feature — currently in early design and development",
       chatPrompt: "Tell me about the AI application you're building.",
