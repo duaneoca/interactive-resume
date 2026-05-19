@@ -1,0 +1,166 @@
+# Duane Pinkerton — Candidate Profile
+
+## About This Page
+
+This is the professional profile of Duane Pinkerton, a senior technical professional with 26 years
+of experience in professional services, solutions architecture, and data engineering. He is actively
+seeking his next role as of 2026.
+
+Contact: duane@hire-duane.org | Oakland, CA | github.com/duaneoca
+
+---
+
+## Target Roles
+
+Duane is actively applying to and interested in roles including:
+
+- Forward Deployed Engineer (FDE)
+- Principal Forward Deployed AI Engineer
+- Applied AI Architect, Industries
+- Scaled AI Success Engineer
+- Partner Solutions Architect, Applied AI
+- Principal Solution Engineer, Ecosystem
+- Solutions Architect, Digital Natives
+- Solutions Architect, AI
+
+These titles vary by company but describe the same archetype: a senior technical professional who
+works directly with customers or partners to deploy, implement, and extend AI and enterprise
+software products.
+
+---
+
+## Why These Roles Fit
+
+These roles share a common pattern: deep technical implementation work, direct customer or partner
+engagement, and AI deployment. That description is Duane's entire career.
+
+For 26 years across two long tenures, his work has followed the same loop: sit with a customer,
+understand what they actually need, figure out where the product falls short, and go build the
+missing piece. He has done this at startup scale (Extensity) and enterprise scale (Oracle), for
+customers including Cisco, Disney, Verizon, PayPal, Intuit, and Wells Fargo.
+
+His current independent work is specifically targeted at AI: building agents and agentic workflows,
+deploying LLM-based diagnostics, working with MCP (Model Context Protocol) servers, and building
+applications that use AI as a runtime feature. The interactive resume site at hire-duane.org is
+itself an example of this work.
+
+The customer-facing and requirements side is deep and long-established (26 years). The AI and
+modern infrastructure sides are newer but being built deliberately, with real deployments.
+
+---
+
+## Summary
+
+Twenty-six years in technical professional services, consistently at the intersection of deep
+implementation work and direct customer engagement. Career built around a specific loop: sit with a
+customer, understand what they actually need, figure out where the product falls short, and go write
+the missing piece. Has built data pipelines and integration systems from scratch, owned them
+end-to-end through production at enterprise scale, and made the architectural decisions about how
+they grow.
+
+---
+
+## Skills
+
+**Customer Engagement:** Requirements discovery, gap analysis, translating technical constraints
+into business terms, knowing when to build vs. configure
+
+**Languages & Scripting:** Java, Python, SQL, Unix/Shell, REST APIs
+
+**Infrastructure:** Docker, Kubernetes, OCI, Git, Jenkins, GitHub Actions
+
+**Technical Strengths:** SQL performance tuning, data pipeline architecture, distributed systems
+operations
+
+**AI & Emerging:** Prompt engineering, agentic workflows, LLM integration, MCP (Model Context
+Protocol), n8n workflow orchestration, Home Assistant AI agents
+
+---
+
+## Current Projects & Learning
+
+- Building AI agents and agentic workflows for Home Assistant using prompt engineering:
+  natural-language control of automations, device states, and scenes through conversational AI
+- Using LLMs to diagnose system and configuration issues in Home Assistant, treating AI as a
+  knowledgeable first-responder for troubleshooting
+- Building workflow orchestration pipelines in n8n, connecting APIs and services in ways that
+  weren't practical before LLMs
+- Deployed OpenBrain, MCP servers, and custom AI agents: persistent, model-agnostic memory
+  infrastructure using PostgreSQL + pgvector via Supabase, accessible across multiple AI clients
+  through MCP
+- Building an application that uses AI both as a development tool and as a runtime feature;
+  hire-duane.org is a live example
+- Completing Anthropic's AI Academy
+
+---
+
+## Experience
+
+### Responsys / Oracle (2007–2026)
+
+**Titles:** Principal Professional Solutions Consultant → Data Architect → Solutions Architect →
+Principal Applications Engineer, Operations
+
+#### Building the Platform (2007–2013)
+
+Designed and built the company's custom data pipeline and integration framework from scratch. It
+replaced 95% of existing custom scripts in production and became the standard across the
+professional services organization, eventually supporting 200+ production jobs across 80+ enterprise
+customers.
+
+Owned end-to-end delivery of customer engagements: discovery, requirements, documentation,
+implementation, custom development, and handover to support.
+
+Trained consultants and partners on implementation best practices; primary subject matter expert for
+custom data integration across the organization.
+
+Notable customers: Williams Sonoma, Pottery Barn, West Elm, Epson, Orbitz, Carlson Wagonlit,
+Verizon, Disney, Symantec, Lenovo, Levi's, Lego, PayPal, See's, Coach, Grainger, Intuit,
+Wells Fargo, BabyCenter
+
+#### Owning the Platform (2013–2026)
+
+Following Oracle's acquisition, transitioned into an operations role to preserve and evolve the
+platform. Made key architectural decisions around reliability, redundancy, and capacity planning.
+
+Led the migration of the entire environment from bare metal to a containerized infrastructure on OCI
+using Docker, Kubernetes, Git, and Jenkins — completed with zero significant downtime events.
+
+Responsible for deploying the environment in new datacenters as the platform expanded.
+
+---
+
+### Extensity / Geac / Infor (1999–2007)
+
+**Titles:** Principal Professional Services Consultant → Team Lead, Custom Solutions Group
+
+Owned end-to-end delivery of enterprise software implementations — from discovery through training
+and support handover — for a portfolio of complex domestic and international clients.
+
+Built multi-currency and exchange rate support from scratch, enabling the company's first
+international enterprise deployments for Cisco and Sybase across their global offices. Those
+capabilities were later incorporated into the product itself.
+
+Spent 18 months in the UK as the lead technical member of the founding professional services team —
+trained and mentored three colleagues, hands-on across all client implementations.
+
+Led a team of professional services developers implementing custom solutions across the client base.
+
+Notable customers: Cisco Systems, Sybase, Ernst & Young, ATKearney, State of Alaska, Franklin
+Investments, Lawrence Livermore National Labs, Memorial Sloane Kettering Cancer Center, UCLA,
+McKinsey & Co.
+
+---
+
+## Education
+
+Bachelor of Arts in Computer Science — UC Berkeley
+
+---
+
+## Contact
+
+- Email: duane@hire-duane.org
+- Location: Oakland, CA (open to remote)
+- GitHub: github.com/duaneoca
+- Resume site: hire-duane.org
