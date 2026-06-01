@@ -70,7 +70,7 @@ export const resumeData = {
     },
     {
       id: "proj-ai-app",
-      text: "Two production sites running AI as a core runtime feature, with more in active development — hire-duane.org is one example",
+      text: "Two production sites running AI as a core runtime feature — hire-duane.org and job-radar.net — with more in active development",
       chatPrompt: "Tell me about the AI-powered sites you've built.",
     },
   ],
