@@ -113,6 +113,18 @@ The honest summary: the customer-facing and requirements side is deep and long-e
 
 ---
 
+## AI-Powered Production Sites
+
+Duane currently has two production sites running AI as a core runtime feature.
+
+**hire-duane.org** is an interactive resume site built to showcase his experience and skills in a way that goes beyond a static document. Visitors can ask questions through a chat interface powered by Claude, which reads a set of detailed knowledge files covering his career history, skills, working style, and common interview questions — giving substantive, contextual answers rather than generic responses. The site also includes a job evaluator: a visitor can paste a job listing and receive an honest assessment of how well Duane's background matches the role. The entire site is optimized for agentic viewing — structured data, llms.txt, and static metadata ensure AI agents and crawlers can read his profile without executing JavaScript. The stack is React frontend, Python backend, deployed on k3s with GitHub Actions CI/CD. The same Claude model powers all AI interactions on the site.
+
+**Job Radar** is a job search tool Duane built for his own job search and is opening to friends and family after alpha testing. It aggregates job listings from multiple sources via free APIs, filtered by the user's criteria, and uses AI to score each listing against the user's stated priorities. From there it supports the full application workflow: AI-assisted company research, help populating application fields (with a human in the loop — it assists, it doesn't automate), and interview preparation tools that suggest relevant questions and surface places where the user's own experience stories might apply to specific questions. Importantly, the interview prep is food for consideration, not generated answers — the goal is to help the user think, not to think for them. The site ships with sensible default prompts for all AI interactions, but users have complete control over every prompt, allowing them to tailor the AI's behavior to their own priorities and voice. The site also tracks each position through a pipeline: new, reviewed, applied, interviewing, and so on. For jobs found outside the API search, a browser shortcut reads the current page on major job sites and imports the listing details directly into Job Radar. The site is AI-agnostic, supporting OpenAI, Anthropic, Google, and Groq.
+
+Both sites are live in production. Both use AI not as a novelty feature but as a functional core of what the product does.
+
+---
+
 ## What "Interesting Work" Means to Duane
 
 From the pattern across his career:

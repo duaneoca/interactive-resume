@@ -88,9 +88,8 @@ Protocol), n8n workflow orchestration, Home Assistant AI agents
 - Deployed OpenBrain, MCP servers, and custom AI agents: persistent, model-agnostic memory
   infrastructure using PostgreSQL + pgvector via Supabase, accessible across multiple AI clients
   through MCP
-- Building an application that uses AI both as a development tool and as a runtime feature;
-  hire-duane.org is a live example
-- Completing Anthropic's AI Academy
+- Two production sites running AI as a core runtime feature, with more in active development;
+  hire-duane.org is one example
 
 ---
 
