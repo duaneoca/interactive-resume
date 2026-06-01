@@ -39,6 +39,17 @@ export const resumeData = {
         "Distributed systems operations",
       ],
     },
+    {
+      id: "skills-ai",
+      category: "AI & Emerging",
+      items: [
+        "Prompt engineering",
+        "Agentic workflows",
+        "LLM integration",
+        "MCP (Model Context Protocol)",
+        "n8n workflow orchestration",
+      ],
+    },
   ],
 
   currentProjects: [
@@ -59,8 +70,8 @@ export const resumeData = {
     },
     {
       id: "proj-ai-app",
-      text: "Building an application that uses AI both as a development tool and as a runtime feature — currently in early design and development",
-      chatPrompt: "Tell me about the AI application you're building.",
+      text: "Two production sites running AI as a core runtime feature, with more in active development — hire-duane.org is one example",
+      chatPrompt: "Tell me about the AI-powered sites you've built.",
     },
   ],
 

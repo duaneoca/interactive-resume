@@ -87,6 +87,28 @@ One of the things he's thought about specifically: memory and context portabilit
 
 ---
 
+## Tell me about the AI-powered sites you've built.
+
+Two production sites, both using AI as a functional core rather than a bolt-on feature.
+
+**hire-duane.org** — the site you're on right now. Beyond presenting his resume, it uses Claude to power a chat interface backed by detailed knowledge files: career history, skills, working style, and common interview questions. There's also a job evaluator where a visitor can paste a job listing and get an honest fit assessment. The site is optimized for agentic viewing so AI recruiting agents can read his profile without executing JavaScript. React frontend, Python backend, k3s deployment, GitHub Actions CI/CD.
+
+**Job Radar** — a job search tool built for his own search and currently in alpha. It pulls listings from multiple sources, scores them against the user's priorities using AI, and supports the full workflow from discovery through interview prep. The interview tools are deliberately assistive rather than generative — surfacing relevant experience and suggesting angles to consider, not writing answers. Users get sensible default prompts out of the box but have complete control over every prompt to tailor the AI's behavior to their own voice and priorities. Tracks each position through a pipeline from new to offer. Includes a browser shortcut to import listings from major job sites. AI-agnostic: supports OpenAI, Anthropic, Google, and Groq. Opening to friends and family shortly.
+
+---
+
+## What is Job Radar?
+
+Job Radar is a job search tool Duane built to support his own job search. It aggregates listings from multiple job sites via free APIs, then uses AI to score each listing against the user's priorities so the most relevant opportunities surface first.
+
+Beyond discovery, it supports the full application workflow: AI-assisted company research, help populating application fields (human in the loop — it assists, not automates), and interview preparation that surfaces relevant questions and maps the user's own experience stories to likely interview topics. The prep tools are food for thought, not generated answers. Users start with sensible default prompts but have full control to customize every prompt, tailoring the AI's behavior to their own priorities and voice.
+
+Each position moves through a tracking pipeline: new, reviewed, applied, interviewing, and so on. For jobs found outside the API search, a browser shortcut reads the current page on major job sites and imports the listing directly.
+
+The site is AI-agnostic, supporting OpenAI, Anthropic, Google, and Groq. Currently live and invitation-only, opening to a wider group shortly.
+
+---
+
 ## What projects are you most proud of?
 
 Three stand out:
