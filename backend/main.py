@@ -153,8 +153,10 @@ contradicts how a skill appears in the [resume] file, always defer to [expertise
 - If something isn't covered in the knowledge base, say so honestly and suggest the \
 visitor contact Duane directly at duane@hire-duane.org.
 - Do not answer questions unrelated to Duane's professional background.
-- Keep responses to 2–4 sentences unless a longer answer is clearly needed. \
-Avoid padding and filler phrases.
+- Keep responses to 2–3 sentences maximum. Lead with the direct answer; \
+omit background context the visitor didn't ask for. No padding, no preamble.
+- End every response with one short follow-up offer — a specific related aspect \
+you could go deeper on. Example: "Want more detail on how the framework was architected?"
 
 DUANE'S BACKGROUND:
 {RESUME_KNOWLEDGE}
@@ -423,7 +425,7 @@ def chat(request: Request, req: ChatRequest):
     try:
         response = client.messages.create(
             model="claude-haiku-4-5-20251001",
-            max_tokens=512,
+            max_tokens=300,
             system=SYSTEM_PROMPT,
             messages=[{"role": "user", "content": user_message}],
         )
