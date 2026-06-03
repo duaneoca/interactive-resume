@@ -4,6 +4,7 @@
 - Email: duane@hire-duane.org
 - Location: Oakland, CA
 - GitHub: github.com/duaneoca
+- LinkedIn: linkedin.com/in/duane-pinkerton
 
 ---
 
@@ -15,13 +16,15 @@ Twenty-six years in technical professional services, consistently at the interse
 
 ## Skills
 
-**Customer Engagement:** Requirements discovery, gap analysis, translating technical constraints into business terms, knowing when to build vs. configure
+**Customer Engagement:** Requirements discovery · Gap analysis · Translating technical constraints into business terms · Knowing when to build vs. configure
 
-**Languages & Scripting:** Java, Python, SQL, Unix/Shell, REST APIs
+**Languages & Scripting:** Java · Python · SQL · Unix/Shell · REST APIs
 
-**Infrastructure:** Docker, Kubernetes, OCI, Git, Jenkins
+**Infrastructure:** Docker · Kubernetes · OCI · Git · Jenkins
 
-**Technical Strengths:** SQL performance tuning, data pipeline architecture, distributed systems operations
+**Technical Strengths:** SQL performance tuning · Data pipeline architecture · Distributed systems operations
+
+**AI & Emerging:** Claude API / Anthropic SDK · Multi-provider LLM integration · RAG patterns and knowledge-backed chat · Vector embeddings and pgvector · Prompt engineering and system prompt design · Agentic workflows and MCP · n8n workflow orchestration
 
 ---
 
