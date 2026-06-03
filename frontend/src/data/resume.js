@@ -55,24 +55,29 @@ export const resumeData = {
 
   currentProjects: [
     {
-      id: "proj-ha-agents",
-      text: "Building AI agents and agentic workflows for Home Assistant using prompt engineering — natural-language control of automations, device states, and scenes through conversational AI",
-      chatPrompt: "Tell me about your Home Assistant AI agent work.",
+      id: "proj-ai-app",
+      text: "Two production sites running AI as a core runtime feature: hire-duane.org, an interactive resume with RAG-backed chat and job-fit evaluation optimized for agentic crawling, and job-radar.net, a multi-provider job search tool with AI scoring, application workflow support, and interview prep — with more in development",
+      chatPrompt: "Tell me about the AI-powered sites you've built.",
     },
     {
-      id: "proj-ha-llm",
-      text: "Using LLMs to diagnose system and configuration issues in Home Assistant — treating AI as a knowledgeable first-responder for troubleshooting",
-      chatPrompt: "How are you using LLMs for Home Assistant troubleshooting?",
+      id: "proj-openbrain",
+      text: "Deployed OpenBrain and MCP servers: persistent, model-agnostic memory infrastructure using PostgreSQL with pgvector, enabling semantic retrieval across Claude, ChatGPT, Cursor, and any MCP-compatible client from a single shared knowledge base",
+      chatPrompt: "Tell me about your OpenBrain and MCP server work.",
     },
     {
       id: "proj-n8n",
-      text: "Building workflow orchestration pipelines in n8n, connecting APIs and services in ways that weren't practical before LLMs",
+      text: "Building workflow orchestration pipelines in n8n, connecting APIs and services with LLM-powered decision nodes in ways that weren't practical before AI",
       chatPrompt: "Tell me about your n8n workflow automation work.",
     },
     {
-      id: "proj-ai-app",
-      text: "Two production sites running AI as a core runtime feature — hire-duane.org and job-radar.net — with more in active development",
-      chatPrompt: "Tell me about the AI-powered sites you've built.",
+      id: "proj-ha-llm",
+      text: "Using LLMs to diagnose system and configuration issues in Home Assistant, treating AI as a knowledgeable first-responder for troubleshooting rather than a search engine",
+      chatPrompt: "How are you using LLMs for Home Assistant troubleshooting?",
+    },
+    {
+      id: "proj-ha-agents",
+      text: "Building AI agents and agentic workflows for Home Assistant using prompt engineering, providing natural-language control of automations, device states, and scenes through conversational AI",
+      chatPrompt: "Tell me about your Home Assistant AI agent work.",
     },
   ],
 
