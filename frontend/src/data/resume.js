@@ -5,6 +5,7 @@ export const resumeData = {
     phone: "510.519.1105",
     location: "Oakland, CA",
     github: "github.com/duaneoca",
+    linkedin: "linkedin.com/in/duane-pinkerton",
   },
 
   summary: `Twenty-six years in technical professional services, consistently at the intersection of deep implementation work and direct customer engagement. My career has been built around a specific loop: sit with a customer, understand what they actually need, figure out where the product falls short, and go write the missing piece. I've built data pipelines and integration systems from scratch, owned them end-to-end through production at enterprise scale, and made the architectural decisions about how they grow. I'm drawn to understanding how systems work — and to making them work better.`,

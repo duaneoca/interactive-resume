@@ -6,7 +6,7 @@ export default function Header({ data, onOpenEvaluator }) {
         <h1 className="text-4xl font-bold tracking-tight text-slate-900 dark:text-white">{name}</h1>
         <div className="shrink-0 mt-1 flex items-center gap-2">
           <a
-            href="/Duane_Pinkerton_FDE.pdf"
+            href="/Duane_Pinkerton.pdf"
             download
             className="flex items-center gap-1.5 px-4 py-2 text-xs font-medium text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-700 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 hover:border-slate-400 dark:hover:border-slate-500 transition-colors"
           >
@@ -45,6 +45,15 @@ export default function Header({ data, onOpenEvaluator }) {
           className="hover:text-blue-600 transition-colors"
         >
           {contact.github}
+        </a>
+        <span className="text-slate-300">·</span>
+        <a
+          href={`https://${contact.linkedin}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:text-blue-600 transition-colors"
+        >
+          {contact.linkedin}
         </a>
       </div>
       <div className="mt-8 border-t-2 border-blue-600" />
