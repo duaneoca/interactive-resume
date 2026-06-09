@@ -1,8 +1,8 @@
-# Duane Pinkerton — Candidate Profile
+# Duane Pinkerton: Candidate Profile
 
 ## About This Page
 
-This is the professional profile of Duane Pinkerton, a senior technical professional with 26 years
+This is the professional profile of Duane Pinkerton, a senior technical professional with 20+ years
 of experience in professional services, solutions architecture, and data engineering. He is actively
 seeking his next role as of 2026.
 
@@ -34,7 +34,7 @@ software products.
 These roles share a common pattern: deep technical implementation work, direct customer or partner
 engagement, and AI deployment. That description is Duane's entire career.
 
-For 26 years across two long tenures, his work has followed the same loop: sit with a customer,
+For 20+ years across two long tenures, his work has followed the same loop: sit with a customer,
 understand what they actually need, figure out where the product falls short, and go build the
 missing piece. He has done this at startup scale (Extensity) and enterprise scale (Oracle), for
 customers including Cisco, Disney, Verizon, PayPal, Intuit, and Wells Fargo.
@@ -44,14 +44,14 @@ deploying LLM-based diagnostics, working with MCP (Model Context Protocol) serve
 applications that use AI as a runtime feature. The interactive resume site at hire-duane.org is
 itself an example of this work.
 
-The customer-facing and requirements side is deep and long-established (26 years). The AI and
+The customer-facing and requirements side is deep and long-established (20+ years). The AI and
 modern infrastructure sides are newer but being built deliberately, with real deployments.
 
 ---
 
 ## Summary
 
-Twenty-six years in technical professional services, consistently at the intersection of deep
+20+ years in technical professional services, consistently at the intersection of deep
 implementation work and direct customer engagement. Career built around a specific loop: sit with a
 customer, understand what they actually need, figure out where the product falls short, and go write
 the missing piece. Has built data pipelines and integration systems from scratch, owned them
@@ -64,29 +64,44 @@ they grow.
 
 **Customer Engagement:** Requirements discovery · Gap analysis · Translating technical constraints into business terms · Knowing when to build vs. configure
 
-**Languages & Scripting:** Java · Python · SQL · Unix/Shell · REST APIs
+**Languages & Scripting:** Python · Java · SQL · JavaScript · Unix/Shell · REST APIs
 
-**Infrastructure:** Docker · Kubernetes · OCI · Git · Jenkins · GitHub Actions
+**Infrastructure:** Docker · Kubernetes · AWS (EC2) · Oracle Cloud Infrastructure (OCI) · Linode · Git · Jenkins · CI/CD
 
-**Technical Strengths:** SQL performance tuning · Data pipeline architecture · Distributed systems operations
+**Technical Strengths:** SQL performance tuning · Data pipeline architecture · Distributed systems operations · System integration
 
-**AI & Emerging:** Claude API / Anthropic SDK · Multi-provider LLM integration · RAG patterns and knowledge-backed chat · Vector embeddings and pgvector · Prompt engineering and system prompt design · Agentic workflows and MCP · n8n workflow orchestration
+**AI & Emerging:**
+- LLM integration: Claude (Anthropic), OpenAI, multi-provider routing
+- Agentic frameworks: LangGraph (orchestration, checkpointing, human-in-the-loop), MCP (Model Context Protocol, both consuming and publishing servers)
+- RAG (Retrieval-Augmented Generation): architecture, chunking, knowledge bases, chat interfaces
+- Vector search: pgvector, semantic embeddings, Supabase
+- Prompt engineering: system prompt design, context engineering, Classifier+Critic validation loops, evaluation
+- Observability: Langfuse (traces, prompt versioning, LLM evaluation)
+- Workflow automation: n8n, LLM-powered decision nodes, API orchestration
+- Production AI: tracing, deployment, real-world system integration, security threat modeling for AI systems
 
 ---
 
-## Current Projects & Learning
+## Current Projects (2024–present)
 
-- Building AI agents and agentic workflows for Home Assistant using prompt engineering:
-  natural-language control of automations, device states, and scenes through conversational AI
-- Using LLMs to diagnose system and configuration issues in Home Assistant, treating AI as a
-  knowledgeable first-responder for troubleshooting
-- Building workflow orchestration pipelines in n8n, connecting APIs and services in ways that
-  weren't practical before LLMs
-- Deployed OpenBrain, MCP servers, and custom AI agents: persistent, model-agnostic memory
-  infrastructure using PostgreSQL + pgvector via Supabase, accessible across multiple AI clients
-  through MCP
-- Two production sites running AI as a core runtime feature — hire-duane.org and job-radar.net —
-  with more in active development
+- Production AI applications: Two live sites running AI as a core runtime feature: hire-duane.org
+  (interactive resume with RAG-backed chat, job-fit evaluation, and agentic crawling support) and
+  job-radar.net (multi-provider job search with AI scoring, application workflow, and interview
+  prep; hosted on AWS)
+- Persistent AI memory infrastructure: Deployed OpenBrain and MCP servers: model-agnostic memory
+  layer using PostgreSQL + pgvector (via Supabase), enabling semantic retrieval across Claude,
+  ChatGPT, Cursor, and any MCP-compatible client from a single shared knowledge base
+- Workflow automation: Building orchestration pipelines in n8n, connecting APIs and services with
+  LLM-powered decision nodes for complex multi-step automation
+- Agentic email pipeline (in design/early build): a LangGraph-orchestrated agent that classifies
+  job emails, extracts structured data through a Classifier+Critic validation loop, and escalates
+  ambiguous cases to a human via interactive Slack, with Langfuse observability and MCP servers on
+  both ends. Includes a formal security threat model covering prompt injection, stored XSS, and
+  credential handling; mitigations baked into each build phase, not bolted on after
+- LLM-driven troubleshooting: Using LLMs as a first-responder diagnostic layer for system and
+  configuration issues in Home Assistant, bypassing traditional search-based debugging
+- AI agents for home automation: Prompt-engineered agents providing natural-language control of
+  Home Assistant automations, device states, and scenes through conversational AI
 
 ---
 
@@ -116,13 +131,14 @@ Wells Fargo, BabyCenter
 
 #### Owning the Platform (2013–2026)
 
-Following Oracle's acquisition, transitioned into an operations role to preserve and evolve the
-platform. Made key architectural decisions around reliability, redundancy, and capacity planning.
+Made key architectural decisions around platform reliability, redundancy, and capacity planning
+following Oracle's acquisition.
 
-Led the migration of the entire environment from bare metal to a containerized infrastructure on OCI
-using Docker, Kubernetes, Git, and Jenkins — completed with zero significant downtime events.
+Led the migration of the full environment from bare metal to a containerized infrastructure on
+Oracle Cloud Infrastructure (OCI) using Docker, Kubernetes, Git, and Jenkins; completed with zero
+significant downtime events.
 
-Responsible for deploying the environment in new datacenters as the platform expanded.
+Deployed and stood up the environment in new datacenters as the platform expanded geographically.
 
 ---
 
@@ -130,14 +146,15 @@ Responsible for deploying the environment in new datacenters as the platform exp
 
 **Titles:** Principal Professional Services Consultant → Team Lead, Custom Solutions Group
 
-Owned end-to-end delivery of enterprise software implementations — from discovery through training
-and support handover — for a portfolio of complex domestic and international clients.
+Owned end-to-end delivery of enterprise software implementations (discovery, requirements,
+implementation, training, and support handover) across a portfolio of complex domestic and
+international clients.
 
 Built multi-currency and exchange rate support from scratch, enabling the company's first
-international enterprise deployments for Cisco and Sybase across their global offices. Those
-capabilities were later incorporated into the product itself.
+international enterprise deployments (Cisco, Sybase); those capabilities were later incorporated into
+the core product.
 
-Spent 18 months in the UK as the lead technical member of the founding professional services team —
+Spent 18 months in the UK as lead technical member of the founding professional services team;
 trained and mentored three colleagues, hands-on across all client implementations.
 
 Led a team of professional services developers implementing custom solutions across the client base.
@@ -150,7 +167,7 @@ McKinsey & Co.
 
 ## Education
 
-Bachelor of Arts in Computer Science — UC Berkeley
+Bachelor of Arts in Computer Science, UC Berkeley
 
 ---
 

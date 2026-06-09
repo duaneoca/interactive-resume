@@ -8,7 +8,7 @@ export const resumeData = {
     linkedin: "linkedin.com/in/duane-pinkerton",
   },
 
-  summary: `Twenty-six years in technical professional services, consistently at the intersection of deep implementation work and direct customer engagement. My career has been built around a specific loop: sit with a customer, understand what they actually need, figure out where the product falls short, and go write the missing piece. I've built data pipelines and integration systems from scratch, owned them end-to-end through production at enterprise scale, and made the architectural decisions about how they grow. I'm drawn to understanding how systems work — and to making them work better.`,
+  summary: `20+ years in technical professional services, consistently at the intersection of deep implementation work and direct customer engagement. My career has been built around a specific loop: sit with a customer, understand what they actually need, figure out where the product falls short, and go write the missing piece. I've built data pipelines and integration systems from scratch, owned them end-to-end through production at enterprise scale, and made the architectural decisions about how they grow. I'm drawn to understanding how systems work, and to making them work better.`,
 
   skills: [
     {
@@ -24,12 +24,21 @@ export const resumeData = {
     {
       id: "skills-languages",
       category: "Languages & Scripting",
-      items: ["Java", "Python", "SQL", "Unix/Shell", "REST APIs"],
+      items: ["Python", "Java", "SQL", "JavaScript", "Unix/Shell", "REST APIs"],
     },
     {
       id: "skills-infra",
       category: "Infrastructure",
-      items: ["Docker", "Kubernetes", "OCI", "Git", "Jenkins"],
+      items: [
+        "Docker",
+        "Kubernetes",
+        "AWS (EC2)",
+        "Oracle Cloud Infrastructure (OCI)",
+        "Linode",
+        "Git",
+        "Jenkins",
+        "CI/CD",
+      ],
     },
     {
       id: "skills-technical",
@@ -38,16 +47,19 @@ export const resumeData = {
         "SQL performance tuning",
         "Data pipeline architecture",
         "Distributed systems operations",
+        "System integration",
       ],
     },
     {
       id: "skills-ai",
       category: "AI & Emerging",
       items: [
-        "Prompt engineering",
-        "Agentic workflows",
-        "LLM integration",
+        "LLM integration (Claude, OpenAI, multi-provider)",
+        "RAG & vector search (pgvector, Supabase)",
+        "LangGraph & agentic systems",
         "MCP (Model Context Protocol)",
+        "Prompt engineering & evaluation",
+        "Langfuse observability",
         "n8n workflow orchestration",
       ],
     },
@@ -56,27 +68,32 @@ export const resumeData = {
   currentProjects: [
     {
       id: "proj-ai-app",
-      text: "Two production sites running AI as a core runtime feature: hire-duane.org, an interactive resume with RAG-backed chat and job-fit evaluation optimized for agentic crawling, and job-radar.net, a multi-provider job search tool with AI scoring, application workflow support, and interview prep — with more in development",
+      text: "Two production sites running AI as a core runtime feature: hire-duane.org (interactive resume with RAG-backed chat, job-fit evaluation, and agentic crawling support) and job-radar.net (multi-provider job search with AI scoring, application workflow, and interview prep; hosted on AWS)",
       chatPrompt: "Tell me about the AI-powered sites you've built.",
     },
     {
       id: "proj-openbrain",
-      text: "Deployed OpenBrain and MCP servers: persistent, model-agnostic memory infrastructure using PostgreSQL with pgvector, enabling semantic retrieval across Claude, ChatGPT, Cursor, and any MCP-compatible client from a single shared knowledge base",
+      text: "Deployed OpenBrain and MCP servers: model-agnostic memory layer using PostgreSQL + pgvector (via Supabase), enabling semantic retrieval across Claude, ChatGPT, Cursor, and any MCP-compatible client from a single shared knowledge base",
       chatPrompt: "Tell me about your OpenBrain and MCP server work.",
     },
     {
       id: "proj-n8n",
-      text: "Building workflow orchestration pipelines in n8n, connecting APIs and services with LLM-powered decision nodes in ways that weren't practical before AI",
+      text: "Building orchestration pipelines in n8n, connecting APIs and services with LLM-powered decision nodes for complex multi-step automation",
       chatPrompt: "Tell me about your n8n workflow automation work.",
     },
     {
+      id: "proj-email-agent",
+      text: "Agentic email pipeline (in design/early build): a LangGraph-orchestrated agent that classifies job emails, extracts structured data through a Classifier+Critic validation loop, and escalates ambiguous cases to a human via interactive Slack, with Langfuse observability and MCP servers on both ends. Includes a formal security threat model covering prompt injection, stored XSS, and credential handling.",
+      chatPrompt: "Tell me about your agentic email pipeline project.",
+    },
+    {
       id: "proj-ha-llm",
-      text: "Using LLMs to diagnose system and configuration issues in Home Assistant, treating AI as a knowledgeable first-responder for troubleshooting rather than a search engine",
+      text: "Using LLMs as a first-responder diagnostic layer for system and configuration issues in Home Assistant, bypassing traditional search-based debugging",
       chatPrompt: "How are you using LLMs for Home Assistant troubleshooting?",
     },
     {
       id: "proj-ha-agents",
-      text: "Building AI agents and agentic workflows for Home Assistant using prompt engineering, providing natural-language control of automations, device states, and scenes through conversational AI",
+      text: "Prompt-engineered agents providing natural-language control of Home Assistant automations, device states, and scenes through conversational AI",
       chatPrompt: "Tell me about your Home Assistant AI agent work.",
     },
   ],
@@ -94,9 +111,9 @@ export const resumeData = {
           title: "Building the Platform",
           period: "2007 – 2013",
           bullets: [
-            "Designed and built the company's custom data pipeline and integration framework from scratch — it replaced 95% of existing custom scripts in production and became the standard across the professional services organization, eventually supporting 200+ production jobs across 80+ enterprise customers",
-            "Owned end-to-end delivery of customer engagements: discovery, requirements, documentation, implementation, custom development, and handover to support",
-            "Trained consultants and partners on implementation best practices; served as the primary subject matter expert for custom data integration across the organization",
+            "Designed and built the company's custom data pipeline and integration framework from scratch: replaced 95% of existing custom scripts in production, became the organization standard, and scaled to 200+ production jobs across 80+ enterprise customers",
+            "Owned end-to-end delivery of customer engagements: discovery, requirements gathering, documentation, implementation, custom development, and handover to support",
+            "Trained consultants and partners on implementation best practices; primary subject matter expert for custom data integration across the organization",
           ],
         },
         {
@@ -104,9 +121,9 @@ export const resumeData = {
           title: "Owning the Platform",
           period: "2013 – 2026",
           bullets: [
-            "Following Oracle's acquisition and consolidation of the professional services organization, transitioned into an operations role to preserve and evolve the platform — made key architectural decisions around reliability, redundancy, and capacity planning",
-            "Led the migration of the entire environment from bare metal to a containerized infrastructure on OCI using Docker, Kubernetes, Git, and Jenkins — completed with zero significant downtime events",
-            "Responsible for deploying the environment in new datacenters as the platform expanded",
+            "Made key architectural decisions around platform reliability, redundancy, and capacity planning following Oracle's acquisition",
+            "Led the migration of the full environment from bare metal to a containerized infrastructure on Oracle Cloud Infrastructure (OCI) using Docker, Kubernetes, Git, and Jenkins; completed with zero significant downtime events",
+            "Deployed and stood up the environment in new datacenters as the platform expanded geographically",
           ],
         },
       ],
@@ -139,10 +156,10 @@ export const resumeData = {
       roles:
         "Principal Professional Services Consultant → Team Lead, Custom Solutions Group",
       bullets: [
-        "Owned end-to-end delivery of enterprise software implementations — from discovery through training and support handover — for a portfolio of complex domestic and international clients",
-        "Built multi-currency and exchange rate support from scratch, enabling the company's first international enterprise deployments — including rollouts for Cisco and Sybase across their global offices; those capabilities were later incorporated into the product itself",
-        "Worked directly with engineering to get bug fixes and code changes into the codebase",
-        "Spent 18 months in the UK as the lead technical member of the founding professional services team — trained and mentored three colleagues and was hands-on across all client implementations",
+        "Owned end-to-end delivery of enterprise software implementations (discovery, requirements, implementation, training, and support handover) across a portfolio of complex domestic and international clients",
+        "Built multi-currency and exchange rate support from scratch, enabling the company's first international enterprise deployments (Cisco, Sybase); those capabilities were later incorporated into the core product",
+        "Worked directly with engineering to drive bug fixes and code changes into the product codebase",
+        "Spent 18 months in the UK as lead technical member of the founding professional services team; trained and mentored three colleagues, hands-on across all client implementations",
         "Led a team of professional services developers implementing custom solutions across the client base",
       ],
       notableCustomers: [

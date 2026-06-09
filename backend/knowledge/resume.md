@@ -10,7 +10,7 @@
 
 ## Summary
 
-Twenty-six years in technical professional services, consistently at the intersection of deep implementation work and direct customer engagement. Career built around a specific loop: sit with a customer, understand what they actually need, figure out where the product falls short, and go write the missing piece. Has built data pipelines and integration systems from scratch, owned them end-to-end through production at enterprise scale, and made the architectural decisions about how they grow. Drawn to understanding how systems work, and to making them work better.
+20+ years in technical professional services, consistently at the intersection of deep implementation work and direct customer engagement. Career built around a specific loop: sit with a customer, understand what they actually need, figure out where the product falls short, and go write the missing piece. Has built data pipelines and integration systems from scratch, owned them end-to-end through production at enterprise scale, and made the architectural decisions about how they grow. Drawn to understanding how systems work, and to making them work better.
 
 ---
 
@@ -18,69 +18,71 @@ Twenty-six years in technical professional services, consistently at the interse
 
 **Customer Engagement:** Requirements discovery · Gap analysis · Translating technical constraints into business terms · Knowing when to build vs. configure
 
-**Languages & Scripting:** Java · Python · SQL · Unix/Shell · REST APIs
+**Languages & Scripting:** Python · Java · SQL · JavaScript · Unix/Shell · REST APIs
 
-**Infrastructure:** Docker · Kubernetes · OCI · Git · Jenkins
+**Infrastructure:** Docker · Kubernetes · AWS (EC2) · Oracle Cloud Infrastructure (OCI) · Linode · Git · Jenkins · CI/CD
 
-**Technical Strengths:** SQL performance tuning · Data pipeline architecture · Distributed systems operations
+**Technical Strengths:** SQL performance tuning · Data pipeline architecture · Distributed systems operations · System integration
 
-**AI & Emerging:** Claude API / Anthropic SDK · Multi-provider LLM integration · RAG patterns and knowledge-backed chat · Vector embeddings and pgvector · Prompt engineering and system prompt design · Agentic workflows and MCP · n8n workflow orchestration
+**AI & Emerging:**
+- LLM integration: Claude (Anthropic), OpenAI, multi-provider routing
+- Agentic frameworks: LangGraph (orchestration, checkpointing, human-in-the-loop), MCP (Model Context Protocol, both consuming and publishing servers)
+- RAG (Retrieval-Augmented Generation): architecture, chunking, knowledge bases, chat interfaces
+- Vector search: pgvector, semantic embeddings, Supabase
+- Prompt engineering: system prompt design, context engineering, Classifier+Critic validation loops, evaluation
+- Observability: Langfuse (traces, prompt versioning, LLM evaluation)
+- Workflow automation: n8n, LLM-powered decision nodes, API orchestration
+- Production AI: tracing, deployment, real-world system integration, security threat modeling for AI systems
 
 ---
 
-## Current Projects & Learning
+## Current Projects (2024–present)
 
-Actively building hands-on experience in AI and modern infrastructure:
+Actively building and deploying production AI systems:
 
-- Building AI agents and agentic workflows for Home Assistant using prompt engineering: natural-language control of automations, device states, and scenes through conversational AI
-- Using LLMs to diagnose system and configuration issues in Home Assistant, treating AI as a knowledgeable first-responder for troubleshooting
-- Building workflow orchestration pipelines in n8n, connecting APIs and services in ways that weren't practical before LLMs
-- Deployed OpenBrain, Model Context Protocol (MCP) servers, and custom AI agents to automate complex workflows: persistent, model-agnostic memory infrastructure using PostgreSQL + pgvector via Supabase, accessible across multiple AI clients through MCP
-- Building an application that uses AI both as a development tool and as a runtime feature; this interactive resume site (hire-duane.org) is a live example of that effort
+- **Production AI applications:** Two live sites running AI as a core runtime feature: hire-duane.org (interactive resume with RAG-backed chat, job-fit evaluation, and agentic crawling support) and job-radar.net (multi-provider job search with AI scoring, application workflow, and interview prep; hosted on AWS)
+- **Persistent AI memory infrastructure:** Deployed OpenBrain and MCP servers: model-agnostic memory layer using PostgreSQL + pgvector (via Supabase), enabling semantic retrieval across Claude, ChatGPT, Cursor, and any MCP-compatible client from a single shared knowledge base
+- **Workflow automation:** Building orchestration pipelines in n8n, connecting APIs and services with LLM-powered decision nodes for complex multi-step automation
+- **Agentic email pipeline** (in design/early build): LangGraph-orchestrated agent that classifies job emails, extracts structured data through a Classifier+Critic validation loop, and escalates ambiguous cases to a human via interactive Slack, with Langfuse observability and MCP servers on both ends
+- Includes a formal security threat model covering prompt injection, stored XSS, and credential handling; mitigations baked into each build phase, not bolted on after
+- **LLM-driven troubleshooting:** Using LLMs as a first-responder diagnostic layer for system and configuration issues in Home Assistant, bypassing traditional search-based debugging
+- **AI agents for home automation:** Prompt-engineered agents providing natural-language control of Home Assistant automations, device states, and scenes through conversational AI
 
 ---
 
 ## Experience
 
-### Responsys / Oracle (2007-2026)
+### Responsys / Oracle (2007–2026)
 
 **Titles held (in progression):** Principal Professional Solutions Consultant → Data Architect → Solutions Architect → Principal Applications Engineer, Operations
 
 #### Building the Platform (2007–2013)
 
-Duane designed and built the company's custom data pipeline and integration framework from scratch. It replaced 95% of existing custom scripts in production and became the standard across the professional services organization, eventually supporting 200+ production jobs across 80+ enterprise customers.
-
-He owned end-to-end delivery of customer engagements: discovery, requirements, documentation, implementation, custom development, and handover to support.
-
-He trained consultants and partners on implementation best practices and served as the primary subject matter expert for custom data integration across the organization.
+- Designed and built the company's custom data pipeline and integration framework from scratch: replaced 95% of existing custom scripts in production, became the organization standard, and scaled to 200+ production jobs across 80+ enterprise customers
+- Owned end-to-end delivery of customer engagements: discovery, requirements gathering, documentation, implementation, custom development, and handover to support
+- Trained consultants and partners on implementation best practices; primary subject matter expert for custom data integration across the organization
 
 #### Owning the Platform (2013–2026)
 
-Following Oracle's acquisition and consolidation of the professional services organization, Duane transitioned into an operations role to preserve and evolve the platform. He made key architectural decisions around reliability, redundancy, and capacity planning.
+- Made key architectural decisions around platform reliability, redundancy, and capacity planning following Oracle's acquisition
+- Led the migration of the full environment from bare metal to a containerized infrastructure on Oracle Cloud Infrastructure (OCI) using Docker, Kubernetes, Git, and Jenkins; completed with zero significant downtime events
+- Deployed and stood up the environment in new datacenters as the platform expanded geographically
 
-He led the migration of the entire environment from bare metal to a containerized infrastructure on OCI using Docker, Kubernetes, Git, and Jenkins, completed with zero significant downtime events. Note: Duane's primary ownership in this stack was Docker (container images and init scripts). Kubernetes configuration and Jenkins CI/CD pipelines were owned by a dedicated ops teammate; his role with those tools was as a knowledgeable user, not the builder.
-
-He was responsible for deploying the environment in new datacenters as the platform expanded.
-
-**Notable customers at Responsys/Oracle:** Williams Sonoma, Pottery Barn, West Elm, Epson, Orbitz, Carlson Wagonlit, Verizon, Disney, Symantec, Lenovo, Levi's, Lego, PayPal, See's, Coach, Grainger, Intuit, Wells Fargo, BabyCenter
+**Notable customers:** Williams Sonoma, Pottery Barn, West Elm, Epson, Orbitz, Carlson Wagonlit, Verizon, Disney, Symantec, Lenovo, Levi's, Lego, PayPal, See's, Coach, Grainger, Intuit, Wells Fargo, BabyCenter
 
 ---
 
-### Extensity / Geac / Infor (1999-2007)
+### Extensity / Geac / Infor (1999–2007)
 
 **Titles held:** Principal Professional Services Consultant → Team Lead, Custom Solutions Group
 
-Duane owned end-to-end delivery of enterprise software implementations, from discovery through training and support handover, for a portfolio of complex domestic and international clients.
+- Owned end-to-end delivery of enterprise software implementations (discovery, requirements, implementation, training, and support handover) across a portfolio of complex domestic and international clients
+- Built multi-currency and exchange rate support from scratch, enabling the company's first international enterprise deployments (Cisco, Sybase); those capabilities were later incorporated into the core product
+- Worked directly with engineering to drive bug fixes and code changes into the product codebase
+- Spent 18 months in the UK as lead technical member of the founding professional services team; trained and mentored three colleagues, hands-on across all client implementations
+- Led a team of professional services developers implementing custom solutions across the client base
 
-He built multi-currency and exchange rate support from scratch, enabling the company's first international enterprise deployments, including rollouts for Cisco and Sybase across their global offices. Those capabilities were later incorporated into the product itself.
-
-He worked directly with engineering to get bug fixes and code changes into the codebase.
-
-He spent 18 months in the UK as the lead technical member of the founding professional services team, trained and mentored three colleagues and was hands-on across all client implementations.
-
-He led a team of professional services developers implementing custom solutions across the client base.
-
-**Notable customers at Extensity/Geac/Infor:** Cisco Systems, Sybase, Ernst & Young, ATKearney, State of Alaska, Franklin Investments, Lawrence Livermore National Labs, Memorial Sloane Kettering Cancer Center, UCLA, McKinsey & Co.
+**Notable customers:** Cisco Systems, Sybase, Ernst & Young, ATKearney, State of Alaska, Franklin Investments, Lawrence Livermore National Labs, Memorial Sloane Kettering Cancer Center, UCLA, McKinsey & Co.
 
 ---
 
@@ -92,7 +94,7 @@ He led a team of professional services developers implementing custom solutions 
 
 ## Additional Notes for the AI Assistant
 
-- Duane has approximately 26 years of professional experience total.
+- Duane has 20+ years of professional experience total.
 - His career spans two long-tenure roles, both in professional services / consulting.
 - A recurring theme is building things that didn't exist and then owning them long-term: frameworks, integrations, infrastructure.
 - He is comfortable at both the technical implementation level and the customer-facing consulting level.

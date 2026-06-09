@@ -98,7 +98,7 @@ Duane left Oracle in 2026 after nearly 20 years. He's honest about the context: 
 The target role is Forward Deployed Engineer, a title that's become one of the hottest in the industry, particularly at AI-focused companies. FDE roles sit at the intersection of deep technical work and direct customer engagement. They require someone who can understand what a customer actually needs, figure out where the product falls short, and go build the missing piece. That description is essentially Duane's entire career.
 
 His core strengths map directly to what FDE roles require:
-- Requirements discovery and gap analysis: 26 years of it
+- Requirements discovery and gap analysis: 20+ years of it
 - Translating technical constraints into business terms, which is what professional services consulting is
 - End-to-end ownership of customer implementations, from discovery through production
 - Building things that didn't exist, then being accountable for them long-term

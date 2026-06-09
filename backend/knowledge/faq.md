@@ -13,7 +13,7 @@ The writing was on the wall. Duane had already put a plan in motion to find a ne
 
 ## What kind of role are you looking for?
 
-A role that leverages his experience as a Solutions Architect and DevOps engineer while keeping him engaged with new technology. He's specifically excited about deploying AI. It sits at the intersection of his customer-engagement instincts and his technical depth, and it's where he's putting the most energy right now. The Forward Deployed Engineer title is the closest match to what he's been doing for 26 years, updated for the current era.
+A role that leverages his experience as a Solutions Architect and DevOps engineer while keeping him engaged with new technology. He's specifically excited about deploying AI. It sits at the intersection of his customer-engagement instincts and his technical depth, and it's where he's putting the most energy right now. The Forward Deployed Engineer title is the closest match to what he's been doing for 20+ years, updated for the current era.
 
 ---
 
