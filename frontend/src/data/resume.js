@@ -67,8 +67,13 @@ export const resumeData = {
 
   currentProjects: [
     {
+      id: "proj-email-agent",
+      text: "Agentic email pipeline: a LangGraph-orchestrated agent that classifies job emails, extracts structured data through a Classifier+Critic validation loop, and escalates ambiguous cases to a human via interactive Slack, with Langfuse observability and MCP servers on both ends. Includes a formal security threat model covering prompt injection, stored XSS, and credential handling.",
+      chatPrompt: "Tell me about your agentic email pipeline project.",
+    },
+    {
       id: "proj-ai-app",
-      text: "Two production sites running AI as a core runtime feature: hire-duane.org (interactive resume with RAG-backed chat, job-fit evaluation, and agentic crawling support) and job-radar.net (multi-provider job search with AI scoring, application workflow, and interview prep; hosted on AWS)",
+      text: "Two production sites running AI as a core runtime feature: hire-duane.org (interactive resume with RAG-backed chat, job-fit evaluation, and agentic crawling support) and job-radar.net (multi-provider job search with AI scoring, resume tailoring, application workflow, interview prep, and an agentic email agent; hosted on AWS)",
       chatPrompt: "Tell me about the AI-powered sites you've built.",
     },
     {
@@ -80,16 +85,6 @@ export const resumeData = {
       id: "proj-n8n",
       text: "Building orchestration pipelines in n8n, connecting APIs and services with LLM-powered decision nodes for complex multi-step automation",
       chatPrompt: "Tell me about your n8n workflow automation work.",
-    },
-    {
-      id: "proj-email-agent",
-      text: "Agentic email pipeline (in design/early build): a LangGraph-orchestrated agent that classifies job emails, extracts structured data through a Classifier+Critic validation loop, and escalates ambiguous cases to a human via interactive Slack, with Langfuse observability and MCP servers on both ends. Includes a formal security threat model covering prompt injection, stored XSS, and credential handling.",
-      chatPrompt: "Tell me about your agentic email pipeline project.",
-    },
-    {
-      id: "proj-ha-llm",
-      text: "Using LLMs as a first-responder diagnostic layer for system and configuration issues in Home Assistant, bypassing traditional search-based debugging",
-      chatPrompt: "How are you using LLMs for Home Assistant troubleshooting?",
     },
     {
       id: "proj-ha-agents",

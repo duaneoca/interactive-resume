@@ -33,3 +33,6 @@ k8s/secret.yaml
 # Logs
 *.log
 npm-debug.log*
+
+#Agent config
+.claude/

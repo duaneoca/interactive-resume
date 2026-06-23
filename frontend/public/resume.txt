@@ -1,0 +1,77 @@
+DUANE PINKERTON
+
+510.519.1105 · Oakland, CA
+duane@hire-duane.org · github.com/duaneoca · linkedin.com/in/duane-pinkerton
+hire-duane.org
+
+
+SUMMARY
+
+20+ years in technical professional services, consistently at the intersection of deep implementation work and direct customer engagement. My career has been built around a specific loop: sit with a customer, understand what they actually need, figure out where the product falls short, and go write the missing piece. I've built data pipelines and integration systems from scratch, owned them end-to-end through production at enterprise scale, and made the architectural decisions about how they grow. I'm drawn to understanding how systems work, and to making them work better.
+
+
+SKILLS
+
+Customer Engagement: Requirements discovery · Gap analysis · Translating technical constraints into business terms · Knowing when to build vs. configure
+
+Languages & Scripting: Python · Java · SQL · JavaScript · Unix/Shell · REST APIs
+
+Infrastructure: Docker · Kubernetes · AWS (EC2) · Oracle Cloud Infrastructure (OCI) · Linode · Git · Jenkins · CI/CD
+
+Technical Strengths: SQL performance tuning · Data pipeline architecture · Distributed systems operations · System integration
+
+AI & Emerging:
+- LLM integration: Claude (Anthropic), OpenAI, multi-provider routing; RAG patterns, vector search, pgvector, semantic embeddings, Supabase
+- Agentic systems: LangGraph (orchestration, checkpointing, human-in-the-loop), MCP (Model Context Protocol, consuming and publishing servers)
+- Prompt engineering: system prompt design, context engineering, Classifier+Critic validation loops, evaluation
+- Tooling and production: Langfuse (observability, traces, prompt versioning), n8n (workflow automation), deployment, security threat modeling
+
+
+CURRENT PROJECTS (2024-present)
+
+Actively building and deploying production AI systems:
+
+- Agentic email pipeline: LangGraph-orchestrated agent that classifies job emails, extracts structured data through a Classifier+Critic validation loop, and escalates ambiguous cases to a human via interactive Slack, with Langfuse observability and MCP servers on both ends. Includes a formal security threat model covering prompt injection, stored XSS, and credential handling; mitigations baked into each build phase, not bolted on after.
+
+- Production AI applications: Two live sites running AI as a core runtime feature: hire-duane.org (interactive resume with RAG-backed chat, job-fit evaluation, and agentic crawling support) and job-radar.net (multi-provider job search with AI scoring, resume tailoring, application workflow, interview prep, and an agentic email agent; hosted on AWS).
+
+- Persistent AI memory infrastructure: Deployed OpenBrain and MCP servers: model-agnostic memory layer using PostgreSQL + pgvector (via Supabase), enabling semantic retrieval across Claude, ChatGPT, Cursor, and any MCP-compatible client from a single shared knowledge base.
+
+- Workflow automation: Building orchestration pipelines in n8n, connecting APIs and services with LLM-powered decision nodes for complex multi-step automation.
+
+- AI agents for home automation: Prompt-engineered agents providing natural-language control of Home Assistant automations, device states, and scenes through conversational AI.
+
+
+EXPERIENCE
+
+Responsys / Oracle (2007-2026)
+Principal Professional Solutions Consultant -> Data Architect -> Solutions Architect -> Principal Applications Engineer, Operations
+
+Building the Platform (2007-2013)
+- Designed and built the company's custom data pipeline and integration framework from scratch: replaced 95% of existing custom scripts in production, became the organization standard, and scaled to 200+ production jobs across 80+ enterprise customers
+- Owned end-to-end delivery of customer engagements: discovery, requirements gathering, documentation, implementation, custom development, and handover to support
+- Trained consultants and partners on implementation best practices; primary subject matter expert for custom data integration across the organization
+
+Owning the Platform (2013-2026)
+- Made key architectural decisions around platform reliability, redundancy, and capacity planning following Oracle's acquisition
+- Led the migration of the full environment from bare metal to a containerized infrastructure on Oracle Cloud Infrastructure (OCI) using Docker, Kubernetes, Git, and Jenkins; completed with zero significant downtime events
+- Deployed and stood up the environment in new datacenters as the platform expanded geographically
+
+Notable customers: Williams Sonoma, Pottery Barn, West Elm, Epson, Orbitz, Carlson Wagonlit, Verizon, Disney, Symantec, Lenovo, Levi's, Lego, PayPal, See's, Coach, Grainger, Intuit, Wells Fargo, BabyCenter
+
+
+Extensity / Geac / Infor (1999-2007)
+Principal Professional Services Consultant -> Team Lead, Custom Solutions Group
+
+- Owned end-to-end delivery of enterprise software implementations (discovery, requirements, implementation, training, and support handover) across a portfolio of complex domestic and international clients
+- Built multi-currency and exchange rate support from scratch, enabling the company's first international enterprise deployments (Cisco, Sybase); those capabilities were later incorporated into the core product
+- Worked directly with engineering to drive bug fixes and code changes into the product codebase
+- Spent 18 months in the UK as lead technical member of the founding professional services team; trained and mentored three colleagues, hands-on across all client implementations
+- Led a team of professional services developers implementing custom solutions across the client base
+
+Notable customers: Cisco Systems, Sybase, Ernst & Young, ATKearney, State of Alaska, Franklin Investments, Lawrence Livermore National Labs, Memorial Sloane Kettering Cancer Center, UCLA, McKinsey & Co.
+
+
+EDUCATION
+
+Bachelor of Arts in Computer Science, UC Berkeley

@@ -40,12 +40,11 @@
 
 Actively building and deploying production AI systems:
 
-- **Production AI applications:** Two live sites running AI as a core runtime feature: hire-duane.org (interactive resume with RAG-backed chat, job-fit evaluation, and agentic crawling support) and job-radar.net (multi-provider job search with AI scoring, application workflow, and interview prep; hosted on AWS)
+- **Agentic email pipeline:** LangGraph-orchestrated agent that classifies job emails, extracts structured data through a Classifier+Critic validation loop, and escalates ambiguous cases to a human via interactive Slack, with Langfuse observability and MCP servers on both ends
+- Includes a formal security threat model covering prompt injection, stored XSS, and credential handling; mitigations baked into each build phase, not bolted on after
+- **Production AI applications:** Two live sites running AI as a core runtime feature: hire-duane.org (interactive resume with RAG-backed chat, job-fit evaluation, and agentic crawling support) and job-radar.net (multi-provider job search with AI scoring, resume tailoring, application workflow, interview prep, and an agentic email agent; hosted on AWS)
 - **Persistent AI memory infrastructure:** Deployed OpenBrain and MCP servers: model-agnostic memory layer using PostgreSQL + pgvector (via Supabase), enabling semantic retrieval across Claude, ChatGPT, Cursor, and any MCP-compatible client from a single shared knowledge base
 - **Workflow automation:** Building orchestration pipelines in n8n, connecting APIs and services with LLM-powered decision nodes for complex multi-step automation
-- **Agentic email pipeline** (in design/early build): LangGraph-orchestrated agent that classifies job emails, extracts structured data through a Classifier+Critic validation loop, and escalates ambiguous cases to a human via interactive Slack, with Langfuse observability and MCP servers on both ends
-- Includes a formal security threat model covering prompt injection, stored XSS, and credential handling; mitigations baked into each build phase, not bolted on after
-- **LLM-driven troubleshooting:** Using LLMs as a first-responder diagnostic layer for system and configuration issues in Home Assistant, bypassing traditional search-based debugging
 - **AI agents for home automation:** Prompt-engineered agents providing natural-language control of Home Assistant automations, device states, and scenes through conversational AI
 
 ---

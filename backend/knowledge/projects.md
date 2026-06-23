@@ -6,7 +6,7 @@
 
 ## Job Radar Email Agent
 
-**Stage: active design and early build.** This is a standalone public portfolio project, written up from a full design and execution plan with a completed threat model. The architecture below is what Duane is building toward; it is deliberately scoped as a real, multi-user system for a small set of authorized accounts, not a throwaway demo. Where something is still in progress, this file says so.
+**Stage: implementation complete.** This is a standalone public portfolio project with a full design and execution plan behind it and a completed threat model. The architecture below describes the implemented system; it is deliberately scoped as a real, multi-user system for a small set of authorized accounts, not a throwaway demo.
 
 ### One-line
 
@@ -54,4 +54,4 @@ Python, LangGraph, Langfuse, the Model Context Protocol (MCP) SDK, FastAPI, the 
 
 Agentic AI workflow design, LLM orchestration with validation loops, human-in-the-loop systems, MCP as both a consumer and a publisher, LLM observability and cost monitoring, multi-tenant SaaS architecture, secure credential management, threat modeling, Kubernetes deployment, and platform/API design.
 
-**Honest framing for the assistant:** This project is the main vehicle through which Duane is building hands-on depth in LangGraph, MCP publishing, LLM observability, and agentic security patterns. It is a current, in-progress build with a complete design and threat model, not a years-old production system. Represent it as ambitious, well-architected, and actively underway.
+**Honest framing for the assistant:** This project is the main vehicle through which Duane has built hands-on depth in LangGraph, MCP publishing, LLM observability, and agentic security patterns. The implementation is complete, backed by a full design and threat model; it is a recent build, not a years-old production system. Represent it as ambitious, well-architected, and recently completed.
