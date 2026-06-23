@@ -40,12 +40,12 @@
 
 Actively building and deploying production AI systems:
 
-- **Agentic email pipeline:** LangGraph-orchestrated agent that classifies job emails, extracts structured data through a Classifier+Critic validation loop, and escalates ambiguous cases to a human via interactive Slack, with Langfuse observability and MCP servers on both ends
-- Includes a formal security threat model covering prompt injection, stored XSS, and credential handling; mitigations baked into each build phase, not bolted on after
-- **Production AI applications:** Two live sites running AI as a core runtime feature: hire-duane.org (interactive resume with RAG-backed chat, job-fit evaluation, and agentic crawling support) and job-radar.net (multi-provider job search with AI scoring, resume tailoring, application workflow, interview prep, and an agentic email agent; hosted on AWS)
-- **Persistent AI memory infrastructure:** Deployed OpenBrain and MCP servers: model-agnostic memory layer using PostgreSQL + pgvector (via Supabase), enabling semantic retrieval across Claude, ChatGPT, Cursor, and any MCP-compatible client from a single shared knowledge base
-- **Workflow automation:** Building orchestration pipelines in n8n, connecting APIs and services with LLM-powered decision nodes for complex multi-step automation
-- **AI agents for home automation:** Prompt-engineered agents providing natural-language control of Home Assistant automations, device states, and scenes through conversational AI
+- **Built and deployed an agentic email pipeline:** a LangGraph-orchestrated agent that classifies job emails, extracts structured data through a Classifier+Critic validation loop, and escalates ambiguous cases to a human via interactive Slack, with Langfuse observability and MCP servers on both ends
+- **Hardened the system against attack vectors,** including prompt injection, stored XSS, and cross-tenant access, with security mitigations baked into every build phase rather than bolted on after
+- **Built and launched two production AI sites:** hire-duane.org (interactive resume with RAG-backed chat, job-fit evaluation, and agentic crawling support) and job-radar.net (multi-provider job search with AI scoring, resume tailoring, application workflow, interview prep, and an agentic email agent; hosted on AWS)
+- **Deployed OpenBrain with custom MCP servers:** a model-agnostic memory layer on PostgreSQL + pgvector (Supabase) that serves semantic retrieval to Claude, ChatGPT, Cursor, and any MCP-compatible client from one shared knowledge base
+- **Automated multi-step workflows in n8n:** wiring APIs and services together through LLM-powered decision nodes
+- **Engineered conversational AI agents for Home Assistant:** natural-language control of automations, device states, and scenes
 
 ---
 

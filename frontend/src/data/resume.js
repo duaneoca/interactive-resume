@@ -68,27 +68,27 @@ export const resumeData = {
   currentProjects: [
     {
       id: "proj-email-agent",
-      text: "Agentic email pipeline: a LangGraph-orchestrated agent that classifies job emails, extracts structured data through a Classifier+Critic validation loop, and escalates ambiguous cases to a human via interactive Slack, with Langfuse observability and MCP servers on both ends. Includes a formal security threat model covering prompt injection, stored XSS, and credential handling.",
+      text: "Built and deployed an agentic email pipeline: a LangGraph-orchestrated agent that classifies job emails, extracts structured data through a Classifier+Critic validation loop, and escalates ambiguous cases to a human via interactive Slack, with Langfuse observability and MCP servers on both ends. Hardened it against attack vectors including prompt injection, stored XSS, and cross-tenant access, with security mitigations baked into every build phase rather than bolted on after.",
       chatPrompt: "Tell me about your agentic email pipeline project.",
     },
     {
       id: "proj-ai-app",
-      text: "Two production sites running AI as a core runtime feature: hire-duane.org (interactive resume with RAG-backed chat, job-fit evaluation, and agentic crawling support) and job-radar.net (multi-provider job search with AI scoring, resume tailoring, application workflow, interview prep, and an agentic email agent; hosted on AWS)",
+      text: "Built and launched two production AI sites: hire-duane.org (interactive resume with RAG-backed chat, job-fit evaluation, and agentic crawling support) and job-radar.net (multi-provider job search with AI scoring, resume tailoring, application workflow, interview prep, and an agentic email agent; hosted on AWS)",
       chatPrompt: "Tell me about the AI-powered sites you've built.",
     },
     {
       id: "proj-openbrain",
-      text: "Deployed OpenBrain and MCP servers: model-agnostic memory layer using PostgreSQL + pgvector (via Supabase), enabling semantic retrieval across Claude, ChatGPT, Cursor, and any MCP-compatible client from a single shared knowledge base",
+      text: "Deployed OpenBrain with custom MCP servers: a model-agnostic memory layer on PostgreSQL + pgvector (Supabase) that serves semantic retrieval to Claude, ChatGPT, Cursor, and any MCP-compatible client from one shared knowledge base",
       chatPrompt: "Tell me about your OpenBrain and MCP server work.",
     },
     {
       id: "proj-n8n",
-      text: "Building orchestration pipelines in n8n, connecting APIs and services with LLM-powered decision nodes for complex multi-step automation",
+      text: "Automated multi-step workflows in n8n, wiring APIs and services together through LLM-powered decision nodes",
       chatPrompt: "Tell me about your n8n workflow automation work.",
     },
     {
       id: "proj-ha-agents",
-      text: "Prompt-engineered agents providing natural-language control of Home Assistant automations, device states, and scenes through conversational AI",
+      text: "Engineered conversational AI agents for Home Assistant: natural-language control of automations, device states, and scenes",
       chatPrompt: "Tell me about your Home Assistant AI agent work.",
     },
   ],
