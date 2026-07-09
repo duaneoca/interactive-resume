@@ -33,6 +33,7 @@
 - Observability: Langfuse (traces, prompt versioning, LLM evaluation)
 - Workflow automation: n8n, LLM-powered decision nodes, API orchestration
 - Production AI: tracing, deployment, real-world system integration, security threat modeling for AI systems
+- Edge / on-device AI: wake-word detection, speech-to-text, and text-to-speech running locally on Raspberry Pi (openWakeWord, Moonshine, Piper)
 
 ---
 
@@ -42,6 +43,7 @@ Actively building and deploying production AI systems:
 
 - **Built and deployed an agentic email pipeline:** a LangGraph-orchestrated agent that classifies job emails, extracts structured data through a Classifier+Critic validation loop, and escalates ambiguous cases to a human via interactive Slack, with Langfuse observability and MCP servers on both ends
 - **Hardened the system against attack vectors,** including prompt injection, stored XSS, and cross-tenant access, with security mitigations baked into every build phase rather than bolted on after
+- **Built and deployed private voice assistant devices** (Raspberry Pi + ReSpeaker) running a fully on-device wake-word, speech-to-text, and text-to-speech pipeline as a hands-free front-end to a self-hosted AI agent, with per-device memory scoping and a zero-inbound-port security posture
 - **Built and launched two production AI sites:** hire-duane.org (interactive resume with RAG-backed chat, job-fit evaluation, and agentic crawling support) and job-radar.net (multi-provider job search with AI scoring, resume tailoring, application workflow, interview prep, and an agentic email agent; hosted on AWS)
 - **Deployed OpenBrain with custom MCP servers:** a model-agnostic memory layer on PostgreSQL + pgvector (Supabase) that serves semantic retrieval to Claude, ChatGPT, Cursor, and any MCP-compatible client from one shared knowledge base
 - **Automated multi-step workflows in n8n:** wiring APIs and services together through LLM-powered decision nodes

@@ -61,6 +61,7 @@ export const resumeData = {
         "Prompt engineering & evaluation",
         "Langfuse observability",
         "n8n workflow orchestration",
+        "Edge / on-device AI (wake word, STT, TTS)",
       ],
     },
   ],
@@ -70,6 +71,11 @@ export const resumeData = {
       id: "proj-email-agent",
       text: "Built and deployed an agentic email pipeline: a LangGraph-orchestrated agent that classifies job emails, extracts structured data through a Classifier+Critic validation loop, and escalates ambiguous cases to a human via interactive Slack, with Langfuse observability and MCP servers on both ends. Hardened it against attack vectors including prompt injection, stored XSS, and cross-tenant access, with security mitigations baked into every build phase rather than bolted on after.",
       chatPrompt: "Tell me about your agentic email pipeline project.",
+    },
+    {
+      id: "proj-hermes-sat",
+      text: "Built and deployed private voice assistant devices (Raspberry Pi + ReSpeaker) running a fully on-device wake-word, speech-to-text, and text-to-speech pipeline as a hands-free front-end to a self-hosted AI agent, with per-device memory scoping and a zero-inbound-port security posture",
+      chatPrompt: "Tell me about your private voice assistant project.",
     },
     {
       id: "proj-ai-app",

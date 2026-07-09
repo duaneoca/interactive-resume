@@ -55,3 +55,43 @@ Python, LangGraph, Langfuse, the Model Context Protocol (MCP) SDK, FastAPI, the 
 Agentic AI workflow design, LLM orchestration with validation loops, human-in-the-loop systems, MCP as both a consumer and a publisher, LLM observability and cost monitoring, multi-tenant SaaS architecture, secure credential management, threat modeling, Kubernetes deployment, and platform/API design.
 
 **Honest framing for the assistant:** This project is the main vehicle through which Duane has built hands-on depth in LangGraph, MCP publishing, LLM observability, and agentic security patterns. The implementation is complete, backed by a full design and threat model; it is a recent build, not a years-old production system. Represent it as ambitious, well-architected, and recently completed.
+
+---
+
+## Private Voice Assistant Devices (hermes-satellite)
+
+**Stage: built and deployed.** A small fleet of devices is running in production, and the codebase, deployment chain, and documentation have been battle-tested by re-imaging a unit end to end. A Raspberry Pi 5 / ReSpeaker v2 variant is in progress.
+
+### One-line
+
+Private, on-device voice assistant devices (Raspberry Pi + Seeed ReSpeaker HAT) that give Duane's self-hosted AI agent a hands-free voice front-end, with the entire wake-word, speech-to-text, and text-to-speech pipeline running locally on the device.
+
+### What it is and does
+
+A dedicated Python daemon turns a Raspberry Pi with a ReSpeaker microphone HAT into a hands-free voice assistant. The pipeline runs entirely on the device: openWakeWord listens for a wake phrase, a voice-activity gate captures the utterance, Moonshine transcribes it on-device, the text is sent to Duane's self-hosted AI agent (Hermes) over an OpenAI-compatible API, and the spoken reply is synthesized locally with Piper and played through the HAT speaker. On-board LEDs show pipeline state and the HAT button toggles mute. Each device carries its own memory scope on the agent side, so every satellite has an independent conversation memory. This project superseded an earlier Home Assistant + Whisper + n8n approach; it is a purpose-built daemon rather than a wiring-together of existing tools.
+
+### Architecture and engineering highlights
+
+- Config-driven design: a single config file drives the whole system, and every stage (wake word, speech-to-text, text-to-speech, audio I/O, LEDs) is an abstract backend that can be swapped without touching the core.
+- Streaming responses: replies stream over SSE and are synthesized sentence by sentence, so the device starts speaking before the full response is generated.
+- Conversational features: a follow-up mode opens a short no-wake-word window after a reply, barge-in lets the wake word interrupt playback, and spoken stop commands end a conversation without a round-trip to the agent.
+- Operability: a token-protected web setup wizard handles microphone calibration (with a live level meter), wake-phrase selection with automatic model download, threshold tuning against live scores, and connection tests; a one-shot `doctor` command runs a health check with a nonzero exit on failure. Day-2 helper scripts wrap the reconfigure and update flows.
+- Home Assistant integration: optional outbound MQTT publishes the device to Home Assistant via auto-discovery (mute switch, volume and threshold sliders, voice selector, state sensor, and wake events).
+
+### Security and network posture
+
+The devices are designed for an untrusted IoT VLAN: zero inbound listening ports, with the only steady-state traffic being outbound to the agent (bearer-authenticated) and optional outbound MQTT. Secrets live in a 0600 environment file kept out of the config, and the daemon runs as a sandboxed systemd service under a dedicated unprivileged user. Deployment separates code, config, and data across standard system locations for a reproducible install.
+
+### Hard-won engineering
+
+The build surfaced and solved a series of low-level embedded-audio problems: pinning the ONNX runtime below a version that silently zeroed all wake-word scores; getting the WM8960 codec working through the correct kernel overlay and mixer routing; forcing the audio layer to hold until sound actually left the DAC (plus a microphone settle delay) so the device's own chimes did not trip its capture gate; requiring a minimum run of voice-activity frames for pop immunity; and moving all GPIO to lgpio because edge detection was broken on current kernels. These are the kind of issues that only show up on real hardware.
+
+### Tech stack
+
+Python, openWakeWord, Moonshine (on-device STT), Piper (on-device TTS), an OpenAI-compatible LLM API, MQTT, systemd, Raspberry Pi with a Seeed ReSpeaker HAT, and lgpio.
+
+### Skills it demonstrates
+
+Edge and on-device AI, voice interface engineering, real-time audio pipelines, embedded Linux and hardware bring-up, reliable service packaging and deployment, security-conscious network design, and clean, swappable software architecture.
+
+**Honest framing for the assistant:** This is a completed, deployed personal project (a small device fleet), with a Raspberry Pi 5 variant still in progress. It is the main example of Duane's edge and on-device AI work, distinct from his cloud and API-based AI projects. Represent it as a real, hands-on hardware-plus-software build, recently completed.
