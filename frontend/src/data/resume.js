@@ -8,7 +8,7 @@ export const resumeData = {
     linkedin: "linkedin.com/in/duane-pinkerton",
   },
 
-  summary: `20+ years in technical professional services, consistently at the intersection of deep implementation work and direct customer engagement. My career has been built around a specific loop: sit with a customer, understand what they actually need, figure out where the product falls short, and go write the missing piece. I've built data pipelines and integration systems from scratch, owned them end-to-end through production at enterprise scale, and made the architectural decisions about how they grow. I'm drawn to understanding how systems work, and to making them work better.`,
+  summary: `20+ years in technical professional services, at the point where deep implementation work meets direct customer engagement. The loop has always been the same: sit with a customer, understand what they actually need, find where the product falls short, then go write the missing piece. I've built data pipelines and integration systems from scratch, owned them through production at enterprise scale, and made the architectural decisions about how they grow. I'm drawn to understanding how systems work, and to making them work better.`,
 
   skills: [
     {
@@ -69,32 +69,32 @@ export const resumeData = {
   currentProjects: [
     {
       id: "proj-email-agent",
-      text: "Built and deployed an agentic email pipeline: a LangGraph-orchestrated agent that classifies job emails, extracts structured data through a Classifier+Critic validation loop, and escalates ambiguous cases to a human via interactive Slack, with Langfuse observability and MCP servers on both ends. Hardened it against attack vectors including prompt injection, stored XSS, and cross-tenant access, with security mitigations baked into every build phase rather than bolted on after.",
+      text: "Built and deployed an agentic email pipeline: a LangGraph agent that classifies job emails, pulls structured data out of them through a Classifier+Critic validation loop, and hands genuinely ambiguous cases to a human over Slack. Langfuse for observability, MCP servers on both ends. Wrote the threat model before any code, then built against it: prompt injection, stored XSS, and cross-tenant access each have a specific mitigation.",
       chatPrompt: "Tell me about your agentic email pipeline project.",
     },
     {
       id: "proj-hermes-sat",
-      text: "Built and deployed private voice assistant devices (Raspberry Pi + ReSpeaker) running a fully on-device wake-word, speech-to-text, and text-to-speech pipeline as a hands-free front-end to a self-hosted AI agent, with per-device memory scoping and a zero-inbound-port security posture",
+      text: "Designed and built private voice assistant devices on Raspberry Pi and ReSpeaker hardware: wake word, speech-to-text, and speech synthesis all run on the device itself, feeding a self-hosted AI agent hands-free. Each unit keeps its own memory scope and listens on no inbound ports",
       chatPrompt: "Tell me about your private voice assistant project.",
     },
     {
       id: "proj-ai-app",
-      text: "Built and launched two production AI sites: hire-duane.org (interactive resume with RAG-backed chat, job-fit evaluation, and agentic crawling support) and job-radar.net (multi-provider job search with AI scoring, resume tailoring, application workflow, interview prep, and an agentic email agent; hosted on AWS)",
+      text: "Launched two production AI sites. hire-duane.org is an interactive resume with RAG-backed chat and job-fit evaluation, built to be readable by crawling agents. job-radar.net runs on AWS and handles multi-provider job search with AI scoring, resume tailoring, application workflow, and interview prep",
       chatPrompt: "Tell me about the AI-powered sites you've built.",
     },
     {
       id: "proj-openbrain",
-      text: "Deployed OpenBrain with custom MCP servers: a model-agnostic memory layer on PostgreSQL + pgvector (Supabase) that serves semantic retrieval to Claude, ChatGPT, Cursor, and any MCP-compatible client from one shared knowledge base",
+      text: "Deployed OpenBrain behind custom MCP servers: a model-agnostic memory layer on PostgreSQL and pgvector that answers semantic queries from Claude, ChatGPT, Cursor, or any MCP client, all against one shared knowledge base",
       chatPrompt: "Tell me about your OpenBrain and MCP server work.",
     },
     {
       id: "proj-n8n",
-      text: "Automated multi-step workflows in n8n, wiring APIs and services together through LLM-powered decision nodes",
+      text: "Automated multi-step workflows in n8n, wiring APIs and services together with LLM-powered decision nodes",
       chatPrompt: "Tell me about your n8n workflow automation work.",
     },
     {
       id: "proj-ha-agents",
-      text: "Engineered conversational AI agents for Home Assistant: natural-language control of automations, device states, and scenes",
+      text: "Wrote conversational agents for Home Assistant that handle automations, device states, and scenes in plain language",
       chatPrompt: "Tell me about your Home Assistant AI agent work.",
     },
   ],
@@ -112,7 +112,7 @@ export const resumeData = {
           title: "Building the Platform",
           period: "2007 – 2013",
           bullets: [
-            "Designed and built the company's custom data pipeline and integration framework from scratch: replaced 95% of existing custom scripts in production, became the organization standard, and scaled to 200+ production jobs across 80+ enterprise customers",
+            "Designed and built the company's data pipeline and integration framework from scratch. It replaced 95% of the custom scripts running in production, became the standard across professional services, and grew to carry 200+ production jobs for 80+ enterprise customers",
             "Owned end-to-end delivery of customer engagements: discovery, requirements gathering, documentation, implementation, custom development, and handover to support",
             "Trained consultants and partners on implementation best practices; primary subject matter expert for custom data integration across the organization",
           ],
@@ -122,9 +122,9 @@ export const resumeData = {
           title: "Owning the Platform",
           period: "2013 – 2026",
           bullets: [
-            "Made key architectural decisions around platform reliability, redundancy, and capacity planning following Oracle's acquisition",
-            "Led the migration of the full environment from bare metal to a containerized infrastructure on Oracle Cloud Infrastructure (OCI) using Docker, Kubernetes, Git, and Jenkins; completed with zero significant downtime events",
-            "Deployed and stood up the environment in new datacenters as the platform expanded geographically",
+            "Made the architectural decisions on reliability, redundancy, and capacity planning after Oracle acquired the company",
+            "Led the migration of the whole environment from bare metal to containers on Oracle Cloud Infrastructure (OCI), using Docker, Kubernetes, Git, and Jenkins, and finished it without a significant downtime event",
+            "Deployed the environment in new datacenters as the platform expanded",
           ],
         },
       ],
@@ -157,8 +157,8 @@ export const resumeData = {
       roles:
         "Principal Professional Services Consultant → Team Lead, Custom Solutions Group",
       bullets: [
-        "Owned end-to-end delivery of enterprise software implementations (discovery, requirements, implementation, training, and support handover) across a portfolio of complex domestic and international clients",
-        "Built multi-currency and exchange rate support from scratch, enabling the company's first international enterprise deployments (Cisco, Sybase); those capabilities were later incorporated into the core product",
+        "Ran enterprise software implementations start to finish, from discovery and requirements through training and support handover, for domestic and international clients",
+        "Built multi-currency and exchange rate support from scratch, which made the company's first international enterprise deployments possible at Cisco and Sybase. The features later shipped in the core product",
         "Worked directly with engineering to drive bug fixes and code changes into the product codebase",
         "Spent 18 months in the UK as lead technical member of the founding professional services team; trained and mentored three colleagues, hands-on across all client implementations",
         "Led a team of professional services developers implementing custom solutions across the client base",

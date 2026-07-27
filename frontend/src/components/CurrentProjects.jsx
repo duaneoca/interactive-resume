@@ -4,9 +4,6 @@ export default function CurrentProjects({ data, onExpand }) {
   return (
     <section>
       <SectionHeader title="Current Projects (2024–present)" />
-      <p className="text-sm text-slate-500 dark:text-slate-400 mb-5 -mt-2">
-        Actively building and deploying production AI systems:
-      </p>
       <ul className="space-y-2">
         {data.map((project) => (
           <li
