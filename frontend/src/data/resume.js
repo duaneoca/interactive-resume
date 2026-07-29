@@ -122,7 +122,7 @@ export const resumeData = {
           title: "Owning the Platform",
           period: "2013 – 2026",
           bullets: [
-            "Fielded the final escalations on production data integration issues, joining customer calls as the subject matter expert. As the author of the framework, the buck stopped there: anything that could not be resolved was an infrastructure problem, not an integration one.",
+            "Fielded the final escalations on production data integration issues, joining customer calls as the subject matter expert and advising on how their integrations should be built. As the author of the framework, the buck stopped there: anything that could not be resolved was an infrastructure problem, not an integration one.",
             "Made the architectural decisions on reliability, redundancy, and capacity planning after Oracle acquired the company",
             "Led the migration of the whole environment from bare metal to containers on Oracle Cloud Infrastructure (OCI), using Docker, Kubernetes, Git, and Jenkins, and finished it without a significant downtime event",
             "Deployed the environment in new datacenters as the platform expanded",
