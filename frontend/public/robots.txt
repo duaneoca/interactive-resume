@@ -1,4 +1,9 @@
 User-agent: *
 Allow: /
 
+# Full plain-text profile, intended for AI agents and LLM crawlers:
+#   https://hire-duane.org/llms.txt
+# Plain-text resume:
+#   https://hire-duane.org/resume.txt
+
 Sitemap: https://hire-duane.org/sitemap.xml
