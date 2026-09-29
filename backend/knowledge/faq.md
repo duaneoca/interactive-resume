@@ -113,7 +113,7 @@ The site is AI-agnostic, supporting OpenAI, Anthropic, Google, and Groq. Current
 
 Three stand out:
 
-**The international deployments at Extensity:** He enabled the company's first international enterprise customers (Cisco, Sybase, Ernst & Young, ATKearney) by building multi-currency and exchange rate support from scratch while living in the UK. Early career, high stakes, real impact. These were the first feathers in his cap.
+**The international deployments at Extensity:** He enabled the company's first international enterprise customers (Cisco, Sybase, Ernst & Young, A.T. Kearney) by building multi-currency and exchange rate support from scratch while living in the UK. Early career, high stakes, real impact. These were the first feathers in his cap.
 
 **The Standard Framework at Responsys:** 4,000+ lines of bash that replaced a sprawling collection of copy-paste scripts and became the data integration standard for the entire professional services organization. He designed and built it, watched it grow to support 200+ production jobs across 80+ enterprise customers, and owned it for nearly two decades. The architecture held.
 
