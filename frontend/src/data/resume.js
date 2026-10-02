@@ -58,6 +58,7 @@ export const resumeData = {
         "RAG & vector search (pgvector, Supabase)",
         "LangGraph & agentic systems",
         "MCP (Model Context Protocol)",
+        "Jev decision model (TypeSafe AI)",
         "Prompt engineering & evaluation",
         "Langfuse observability",
         "n8n workflow orchestration",

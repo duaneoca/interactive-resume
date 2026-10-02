@@ -23,6 +23,7 @@ Technical Strengths: SQL performance tuning · Data pipeline architecture · Dis
 AI & Emerging:
 - LLM integration: Claude (Anthropic), OpenAI, multi-provider routing; RAG patterns, vector search, pgvector, semantic embeddings, Supabase
 - Agentic systems: LangGraph (orchestration, checkpointing, human-in-the-loop), MCP (Model Context Protocol, consuming and publishing servers)
+- Decision models: Jev (TypeSafe AI), typed classification with calibrated confidence, used in place of an LLM for email routing
 - Prompt engineering: system prompt design, context engineering, Classifier+Critic validation loops, evaluation
 - Tooling and production: Langfuse (observability, traces, prompt versioning), n8n (workflow automation), deployment, security threat modeling
 - Edge and on-device AI: wake-word detection, speech-to-text, and text-to-speech on Raspberry Pi (openWakeWord, Moonshine, Piper)

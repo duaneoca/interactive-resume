@@ -46,9 +46,15 @@ Duane produced a written threat model before any code, and the security mitigati
 - **Encryption-key segregation and rotation** using MultiFernet, with the credential-encryption key separated from other secrets.
 - **Least-privilege OAuth scopes** and **cost/DoS rate-limiting** on user-supplied LLM keys.
 
+### Replacing the LLM sorter with Jev
+
+The first version of the workflow used an LLM to sort incoming email into categorical buckets. Duane found quickly that it wasn't reliable enough and that it cost too much for what it was doing. He rewrote the sorting step to use Jev, TypeSafe AI's decision model, which answers typed questions with calibrated probabilities instead of generating text. Each email gets one Jev call that picks a category, and anything below the confidence threshold goes to the Unprocessed folder for a person to look at. The change cut processing time drastically and lowered the cost too. LLMs are still used where they're needed, such as picking posting links out of job-alert emails, but routing is now a decision-model job.
+
+**What it shows:** Duane measured the LLM approach against the job, saw it was the wrong tool for a classification decision, and replaced it rather than layering more prompting on top.
+
 ### Tech stack
 
-Python, LangGraph, Langfuse, the Model Context Protocol (MCP) SDK, FastAPI, the existing Job Radar backend (Django/SQLAlchemy with PostgreSQL), Docker and Docker Compose, AWS EC2 with k3s/Kubernetes, GitHub Actions with GHCR, Cloudflare, the Slack/Telegram/Discord APIs, the Gmail API and IMAP, and React.
+Python, LangGraph, Langfuse, Jev (TypeSafe AI decision model), the Model Context Protocol (MCP) SDK, FastAPI, the existing Job Radar backend (Django/SQLAlchemy with PostgreSQL), Docker and Docker Compose, AWS EC2 with k3s/Kubernetes, GitHub Actions with GHCR, Cloudflare, the Slack/Telegram/Discord APIs, the Gmail API and IMAP, and React.
 
 ### Why it matters: skills it demonstrates
 

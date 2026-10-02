@@ -27,6 +27,7 @@ Duane has spent 20+ years in technical professional services, at the point where
 **AI & Emerging:**
 - LLM integration: Claude (Anthropic), OpenAI, multi-provider routing
 - Agentic frameworks: LangGraph (orchestration, checkpointing, human-in-the-loop), MCP (Model Context Protocol, both consuming and publishing servers)
+- Decision models: Jev (TypeSafe AI), typed classification with calibrated confidence, used in place of an LLM for email routing
 - RAG (Retrieval-Augmented Generation): architecture, chunking, knowledge bases, chat interfaces
 - Vector search: pgvector, semantic embeddings, Supabase
 - Prompt engineering: system prompt design, context engineering, Classifier+Critic validation loops, evaluation
