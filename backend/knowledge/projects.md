@@ -10,7 +10,7 @@
 
 ### One-line
 
-An agentic email-processing pipeline that reads job-related emails, classifies and extracts structured data with an LLM, self-validates through a Classifier-to-Critic loop, escalates ambiguous cases to a human via interactive Slack, and writes results into a job-tracking platform, fully observable and threat-modeled.
+An agentic email-processing pipeline that reads job-related emails, sorts them with a decision model, extracts posting links with an LLM, validates that output in code and retries until it's clean, escalates ambiguous cases to a human via interactive Slack, and writes results into a job-tracking platform, fully observable and threat-modeled.
 
 ### Context: turning an app into a platform
 
@@ -20,7 +20,7 @@ Job Radar (job-radar.net) is Duane's existing personal job-search product, descr
 
 - Reads unread job-related email from a configured mailbox (Proton Bridge over IMAP when self-hosted locally, or the Gmail API in the cloud).
 - Classifies each email into one of four categories (recruiter outreach, application confirmation, job alert, social/network noise) and extracts structured fields: company, role, links, and multiple postings per email.
-- Validates every classification with a second LLM acting as a Critic, which also checks job-matching. Failures retry with feedback, then escalate if they still cannot be resolved.
+- Validates the LLM's output with Python code rather than a second LLM. If the output isn't clean, the step loops back and retries with feedback, then escalates if it still cannot be resolved.
 - Files each processed email into mailbox folders (Interaction, Postings, Social, Unprocessed) as a built-in audit trail. The agent only ever reads, marks-read, and moves email; it never deletes.
 - Surfaces new opportunities in a new "Inbox" page in Job Radar and updates application status on existing tracked jobs (applied, interviewing, offer, rejected) with timeline events.
 - Notifies the user through a pluggable notifier (Slack, Telegram, or Discord) and pauses for human input when a match is genuinely ambiguous.
@@ -48,9 +48,11 @@ Duane produced a written threat model before any code, and the security mitigati
 
 ### Replacing the LLM sorter with Jev
 
-The first version of the workflow used an LLM to sort incoming email into categorical buckets. Duane found quickly that it wasn't reliable enough and that it cost too much for what it was doing. He rewrote the sorting step to use Jev, TypeSafe AI's decision model, which answers typed questions with calibrated probabilities instead of generating text. Each email gets one Jev call that picks a category, and anything below the confidence threshold goes to the Unprocessed folder for a person to look at. The change cut processing time drastically and lowered the cost too. LLMs are still used where they're needed, such as picking posting links out of job-alert emails, but routing is now a decision-model job.
+The first version of the workflow sorted incoming email with one LLM call and checked that choice with a second LLM call acting as Critic. It was slow and often wrong. The Critic frequently sent the classification back for correction, sometimes several times, and every loop added more LLM calls. Processing came to about $1.00 and a few minutes per email.
 
-**What it shows:** Duane measured the LLM approach against the job, saw it was the wrong tool for a classification decision, and replaced it rather than layering more prompting on top.
+Duane rewrote the sorting step to use Jev, TypeSafe AI's decision model, which answers typed questions with calibrated probabilities instead of generating text. Each email gets one Jev call that picks a category, and anything below the confidence threshold goes to the Unprocessed folder for a person to look at. An LLM call is still used where it's the right tool: finding the job-posting links in the body of an email. That output still goes through a validation loop, but the check is now Python code instead of a second LLM call. If the output isn't clean, the step runs again. Cost dropped from about $1.00 to about $0.04 per email (roughly 25x cheaper), and processing time dropped from a few minutes to a few seconds per email.
+
+**What it shows:** Duane measured the LLM approach against the job, saw that an LLM checking another LLM was an expensive way to make a classification decision, and replaced it rather than layering more prompting on top. He kept the LLM for the extraction step it actually suited, and moved the checking into deterministic code.
 
 ### Tech stack
 

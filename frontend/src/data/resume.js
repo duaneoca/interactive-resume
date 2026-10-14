@@ -70,7 +70,7 @@ export const resumeData = {
   currentProjects: [
     {
       id: "proj-email-agent",
-      text: "Built and deployed an agentic email pipeline: a LangGraph agent that classifies job emails, pulls structured data out of them through a Classifier+Critic validation loop, and hands genuinely ambiguous cases to a human over Slack. Langfuse for observability, MCP servers on both ends. Wrote the threat model before any code, then built against it: prompt injection, stored XSS, and cross-tenant access each have a specific mitigation.",
+      text: "Built and deployed an agentic email pipeline: a LangGraph agent that sorts job emails with a decision model, extracts posting links with an LLM whose output is validated in code, and hands genuinely ambiguous cases to a human over Slack. Replacing the original design, where an LLM checked another LLM, cut cost per email from about $1.00 to $0.04 and processing time from minutes to seconds. Langfuse for observability, MCP servers on both ends. Wrote the threat model before any code, then built against it: prompt injection, stored XSS, and cross-tenant access each have a specific mitigation.",
       chatPrompt: "Tell me about your agentic email pipeline project.",
     },
     {

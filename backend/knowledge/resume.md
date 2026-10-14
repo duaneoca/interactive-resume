@@ -30,7 +30,7 @@ Duane has spent 20+ years in technical professional services, at the point where
 - Decision models: Jev (TypeSafe AI), typed classification with calibrated confidence, used in place of an LLM for email routing
 - RAG (Retrieval-Augmented Generation): architecture, chunking, knowledge bases, chat interfaces
 - Vector search: pgvector, semantic embeddings, Supabase
-- Prompt engineering: system prompt design, context engineering, Classifier+Critic validation loops, evaluation
+- Prompt engineering: system prompt design, context engineering, code-based validation of LLM output, evaluation, LLM cost optimization
 - Observability: Langfuse (traces, prompt versioning, LLM evaluation)
 - Workflow automation: n8n, LLM-powered decision nodes, API orchestration
 - Production AI: tracing, deployment, real-world system integration, security threat modeling for AI systems
@@ -40,7 +40,7 @@ Duane has spent 20+ years in technical professional services, at the point where
 
 ## Current Projects (2024–present)
 
-- **Built and deployed an agentic email pipeline:** a LangGraph agent that classifies job emails, pulls structured data out of them through a Classifier+Critic validation loop, and hands genuinely ambiguous cases to a human over Slack. Langfuse for observability, MCP servers on both ends. Wrote the threat model before any code, then built against it: prompt injection, stored XSS, and cross-tenant access each have a specific mitigation
+- **Built and deployed an agentic email pipeline:** a LangGraph agent that sorts job emails with a decision model, extracts posting links with an LLM whose output is validated in code, and hands genuinely ambiguous cases to a human over Slack. Replacing the original design, where an LLM checked another LLM, cut cost per email from about $1.00 to $0.04 and processing time from minutes to seconds. Langfuse for observability, MCP servers on both ends. Wrote the threat model before any code, then built against it: prompt injection, stored XSS, and cross-tenant access each have a specific mitigation
 - **Designed and built private voice assistant devices** on Raspberry Pi and ReSpeaker hardware: wake word, speech-to-text, and speech synthesis all run on the device itself, feeding a self-hosted AI agent hands-free. Each unit keeps its own memory scope and listens on no inbound ports
 - **Launched two production AI sites.** hire-duane.org is an interactive resume with RAG-backed chat and job-fit evaluation, built to be readable by crawling agents. job-radar.net runs on AWS and handles multi-provider job search with AI scoring, resume tailoring, application workflow, and interview prep
 - **Deployed OpenBrain behind custom MCP servers:** a model-agnostic memory layer on PostgreSQL and pgvector that answers semantic queries from Claude, ChatGPT, Cursor, or any MCP client, all against one shared knowledge base
