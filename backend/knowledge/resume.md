@@ -10,7 +10,7 @@
 
 ## Summary
 
-Duane has spent 20+ years in technical professional services, at the point where deep implementation work meets direct customer engagement. His loop has always been the same: sit with a customer, understand what they actually need, find where the product falls short, then go write the missing piece. He has built data pipelines and integration systems from scratch, owned them through production at enterprise scale, and made the architectural decisions about how they grow. He is drawn to understanding how systems work, and to making them work better.
+Duane has extensive experience in technical professional services, at the point where deep implementation work meets direct customer engagement. His loop has always been the same: sit with a customer, understand what they actually need, find where the product falls short, then go write the missing piece. He has built data pipelines and integration systems from scratch, owned them through production at enterprise scale, and made the architectural decisions about how they grow. He is drawn to understanding how systems work, and to making them work better.
 
 ---
 
@@ -94,7 +94,7 @@ Duane has spent 20+ years in technical professional services, at the point where
 
 ## Additional Notes for the AI Assistant
 
-- Duane has 20+ years of professional experience total.
+- Don't state a total number of years of experience or work one out from the dates. Describe his experience as extensive, and point to specific roles and accomplishments instead.
 - His career spans two long-tenure roles, both in professional services / consulting.
 - A recurring theme is building things that didn't exist and then owning them long-term: frameworks, integrations, infrastructure.
 - He is comfortable at both the technical implementation level and the customer-facing consulting level.

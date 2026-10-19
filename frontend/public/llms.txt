@@ -2,8 +2,8 @@
 
 ## About This Page
 
-This is the professional profile of Duane Pinkerton, a senior technical professional with 20+ years
-of experience in professional services, solutions architecture, and data engineering. He is actively
+This is the professional profile of Duane Pinkerton, a senior technical professional with extensive
+experience in professional services, solutions architecture, and data engineering. He is actively
 seeking his next role as of 2026.
 
 Contact: duane@hire-duane.org | Oakland, CA | github.com/duaneoca
@@ -34,27 +34,27 @@ software products.
 These roles share a common pattern: deep technical implementation work, direct customer or partner
 engagement, and AI deployment. That description is Duane's entire career.
 
-For 20+ years across two long tenures, his work has followed the same loop: sit with a customer,
-understand what they actually need, figure out where the product falls short, and go build the
-missing piece. He has done this at startup scale (Extensity) and enterprise scale (Oracle), for
-customers including Cisco, Disney, Verizon, PayPal, Intuit, and Wells Fargo.
+Across two long tenures, his work has followed the same loop: sit with a customer, understand what
+they actually need, figure out where the product falls short, and go build the missing piece. He has
+done this at startup scale (Extensity) and enterprise scale (Oracle), for customers including Cisco,
+Disney, Verizon, PayPal, Intuit, and Wells Fargo.
 
 His current independent work is specifically targeted at AI: building agents and agentic workflows,
 deploying LLM-based diagnostics, working with MCP (Model Context Protocol) servers, and building
 applications that use AI as a runtime feature. The interactive resume site at hire-duane.org is
 itself an example of this work.
 
-The customer-facing and requirements side is deep and long-established (20+ years). The AI and
-modern infrastructure sides are newer but being built deliberately, with real deployments.
+The customer-facing and requirements side is deep and long-established. The AI and modern
+infrastructure sides are newer but being built deliberately, with real deployments.
 
 ---
 
 ## Summary
 
-Duane has spent 20+ years in technical professional services, at the point where deep implementation
-work meets direct customer engagement. His loop has always been the same: sit with a customer,
-understand what they actually need, find where the product falls short, then go write the missing
-piece. He has built data pipelines and integration systems from scratch, owned them through
+Duane has extensive experience in technical professional services, at the point where deep
+implementation work meets direct customer engagement. His loop has always been the same: sit with a
+customer, understand what they actually need, find where the product falls short, then go write the
+missing piece. He has built data pipelines and integration systems from scratch, owned them through
 production at enterprise scale, and made the architectural decisions about how they grow.
 
 ---

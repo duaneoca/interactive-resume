@@ -13,7 +13,7 @@ The writing was on the wall. Duane had already put a plan in motion to find a ne
 
 ## What kind of role are you looking for?
 
-A role that leverages his experience as a Solutions Architect and DevOps engineer while keeping him engaged with new technology. He's specifically excited about deploying AI. It sits at the intersection of his customer-engagement instincts and his technical depth, and it's where he's putting the most energy right now. The Forward Deployed Engineer title is the closest match to what he's been doing for 20+ years, updated for the current era.
+A role that leverages his experience as a Solutions Architect and DevOps engineer while keeping him engaged with new technology. He's specifically excited about deploying AI. It sits at the intersection of his customer-engagement instincts and his technical depth, and it's where he's putting the most energy right now. The Forward Deployed Engineer title is the closest match to what he's been doing throughout his career, updated for the current era.
 
 ---
 
@@ -115,6 +115,6 @@ Three stand out:
 
 **The international deployments at Extensity:** He enabled the company's first international enterprise customers (Cisco, Sybase, Ernst & Young, A.T. Kearney) by building multi-currency and exchange rate support from scratch while living in the UK. Early career, high stakes, real impact. These were the first feathers in his cap.
 
-**The Standard Framework at Responsys:** 4,000+ lines of bash that replaced a sprawling collection of copy-paste scripts and became the data integration standard for the entire professional services organization. He designed and built it, watched it grow to support 200+ production jobs across 80+ enterprise customers, and owned it for nearly two decades. The architecture held.
+**The Standard Framework at Responsys:** 4,000+ lines of bash that replaced a sprawling collection of copy-paste scripts and became the data integration standard for the entire professional services organization. He designed and built it, watched it grow to support 200+ production jobs across 80+ enterprise customers, and owned it for the rest of his time at Responsys and Oracle. The architecture held.
 
 **The Docker images for the containerized platform at Oracle:** A genuinely interesting technical challenge: replicating a multi-user bare metal environment inside a Docker container, including a custom init script that pulled encrypted secrets from a database at startup, decrypted them, and built each customer's specific environment from scratch on every container launch. Clean, secure, and reproducible.

@@ -8,7 +8,7 @@ export const resumeData = {
     linkedin: "linkedin.com/in/duane-pinkerton",
   },
 
-  summary: `20+ years in technical professional services, at the point where deep implementation work meets direct customer engagement. The loop has always been the same: sit with a customer, understand what they actually need, find where the product falls short, then go write the missing piece. I've built data pipelines and integration systems from scratch, owned them through production at enterprise scale, and made the architectural decisions about how they grow. I'm drawn to understanding how systems work, and to making them work better.`,
+  summary: `Extensive experience in technical professional services, at the point where deep implementation work meets direct customer engagement. The loop has always been the same: sit with a customer, understand what they actually need, find where the product falls short, then go write the missing piece. I've built data pipelines and integration systems from scratch, owned them through production at enterprise scale, and made the architectural decisions about how they grow. I'm drawn to understanding how systems work, and to making them work better.`,
 
   skills: [
     {
