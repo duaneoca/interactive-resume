@@ -34,10 +34,10 @@ software products.
 These roles share a common pattern: deep technical implementation work, direct customer or partner
 engagement, and AI deployment. That description is Duane's entire career.
 
-Across two long tenures, his work has followed the same loop: sit with a customer, understand what
-they actually need, figure out where the product falls short, and go build the missing piece. He has
-done this at startup scale (Extensity) and enterprise scale (Oracle), for customers including Cisco,
-Disney, Verizon, PayPal, Intuit, and Wells Fargo.
+Across two long tenures, he has sat with customers, learned what they need, found where the product
+falls short, and built the missing piece. He has done this at startup scale (Extensity) and
+enterprise scale (Oracle), for customers including Cisco, Disney, Verizon, PayPal, Intuit, and Wells
+Fargo.
 
 His current independent work is specifically targeted at AI: building agents and agentic workflows,
 deploying LLM-based diagnostics, working with MCP (Model Context Protocol) servers, and building
@@ -51,11 +51,12 @@ infrastructure sides are newer but being built deliberately, with real deploymen
 
 ## Summary
 
-Duane has extensive experience in technical professional services, at the point where deep
-implementation work meets direct customer engagement. His loop has always been the same: sit with a
-customer, understand what they actually need, find where the product falls short, then go write the
-missing piece. He has built data pipelines and integration systems from scratch, owned them through
-production at enterprise scale, and made the architectural decisions about how they grow.
+Duane has spent his career in technical professional services, doing hands-on implementation work
+directly with customers. His approach is to sit with a customer, learn what they need, find where
+the product falls short, and write the missing piece. He has built data pipelines and integration
+systems from scratch and owned them in production at enterprise scale, including the architecture
+decisions as they grew. More recently he has brought the same approach to AI, building agentic
+systems on LangGraph, MCP, and RAG, with model output validated in code.
 
 ---
 
@@ -87,11 +88,10 @@ production at enterprise scale, and made the architectural decisions about how t
 
 - Built and deployed an agentic email pipeline: a LangGraph agent that sorts job emails with a
   decision model, extracts posting links with an LLM whose output is validated in code, and hands
-  genuinely ambiguous cases to a human over Slack. Moved the sorting decision from an LLM to Jev,
-  which cut cost per email from about $1.00 to $0.04 and processing time from minutes to seconds.
-  Langfuse for observability, MCP servers on both ends. Wrote the threat model before any code, then
-  built against it: prompt injection, stored XSS, and cross-tenant access each have a specific
-  mitigation
+  ambiguous cases to a human over Slack. Moved the sorting decision from an LLM to Jev, which cut cost
+  per email from about $1.00 to $0.04 and processing time from minutes to seconds. Langfuse for
+  observability, MCP servers on both ends. Wrote the threat model before writing any code, with a
+  specific mitigation for prompt injection, stored XSS, and cross-tenant access
 - Designed and built private voice assistant devices on Raspberry Pi and ReSpeaker hardware: wake
   word, speech-to-text, and speech synthesis all run on the device itself, feeding a self-hosted AI
   agent hands-free. Each unit keeps its own memory scope and listens on no inbound ports. Brought the
@@ -119,19 +119,18 @@ Principal Applications Engineer, Operations
 
 #### Owning the Platform (2013–2026)
 
-Fielded the final escalations on production data integration issues, joining customer calls as the
-subject matter expert and advising on how their integrations should be built. As the author of the
-framework, the buck stopped there: anything that could not be resolved was an infrastructure
-problem, not an integration one.
+Fielded the final escalations on production data integration issues as the framework's author,
+joining customer calls as the subject matter expert and advising on how their integrations should be
+built.
 
 Made the architectural decisions on reliability, redundancy, and capacity planning after Oracle
 acquired the company.
 
-Led the migration of the whole environment from bare metal to containers on Oracle Cloud
-Infrastructure (OCI), using Docker, Kubernetes, Git, and Jenkins, and finished it without a
-significant downtime event.
+Deployed the data integration environment in new datacenters as the platform expanded.
 
-Deployed the environment in new datacenters as the platform expanded.
+Led the migration of the production data integration environment from bare metal to containers on
+Oracle Cloud Infrastructure (OCI), using Docker, Kubernetes, Git, and Jenkins, and finished it
+without a significant downtime event.
 
 #### Building the Platform (2007–2013)
 
@@ -139,8 +138,8 @@ Designed and built the company's data pipeline and integration framework from sc
 95% of the custom scripts running in production, became the standard across professional services,
 and grew to carry 200+ production jobs for 80+ enterprise customers.
 
-Owned end-to-end delivery of customer engagements: discovery, requirements, documentation,
-implementation, custom development, and handover to support.
+Trusted with the company's highest-profile customer engagements, owning delivery end to end:
+discovery, requirements, documentation, implementation, custom development, and handover to support.
 
 Trained consultants and partners on implementation best practices; primary subject matter expert for
 custom data integration across the organization.

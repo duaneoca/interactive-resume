@@ -87,7 +87,7 @@ html = html.replace(jsonLdRe, jsonLdBlock)
 writeFileSync(distHtml, html)
 
 // ---- 4. Assert the output is actually crawlable -----------------------------
-const required = ['Responsys', 'Extensive experience', 'UC Berkeley', 'Production AI Projects']
+const required = ['Responsys', 'technical professional services', 'UC Berkeley', 'Production AI Projects']
 const missing = required.filter((s) => !html.includes(s))
 if (missing.length) {
   fail(`output is missing expected content: ${missing.join(', ')}`)

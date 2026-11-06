@@ -7,7 +7,7 @@ hire-duane.org
 
 SUMMARY
 
-Extensive experience in technical professional services, at the point where deep implementation work meets direct customer engagement. The loop has always been the same: sit with a customer, understand what they actually need, find where the product falls short, then go write the missing piece. I've built data pipelines and integration systems from scratch, owned them through production at enterprise scale, and made the architectural decisions about how they grow. I'm drawn to understanding how systems work, and to making them work better.
+I've spent my career in technical professional services, doing hands-on implementation work directly with customers. My approach is to sit with a customer, learn what they need, find where the product falls short, and write the missing piece. I've built data pipelines and integration systems from scratch and owned them in production at enterprise scale, including the architecture decisions as they grew. More recently I've brought the same approach to AI, building agentic systems on LangGraph, MCP, and RAG, with model output validated in code. I'm drawn to understanding how systems work, and to making them work better.
 
 
 SKILLS
@@ -31,7 +31,7 @@ AI & Emerging:
 
 PRODUCTION AI PROJECTS (2024-present)
 
-- Built and deployed an agentic email pipeline: a LangGraph agent that sorts job emails with a decision model, extracts posting links with an LLM whose output is validated in code, and hands genuinely ambiguous cases to a human over Slack. Moved the sorting decision from an LLM to Jev, which cut cost per email from about $1.00 to $0.04 and processing time from minutes to seconds. Langfuse for observability, MCP servers on both ends. Wrote the threat model before any code, then built against it: prompt injection, stored XSS, and cross-tenant access each have a specific mitigation.
+- Built and deployed an agentic email pipeline: a LangGraph agent that sorts job emails with a decision model, extracts posting links with an LLM whose output is validated in code, and hands ambiguous cases to a human over Slack. Moved the sorting decision from an LLM to Jev, which cut cost per email from about $1.00 to $0.04 and processing time from minutes to seconds. Langfuse for observability, MCP servers on both ends. Wrote the threat model before writing any code, with a specific mitigation for prompt injection, stored XSS, and cross-tenant access.
 
 - Designed and built private voice assistant devices on Raspberry Pi and ReSpeaker hardware: wake word, speech-to-text, and speech synthesis all run on the device itself, feeding a self-hosted AI agent hands-free. Each unit keeps its own memory scope and listens on no inbound ports. Brought the same design to the desktop as Agent Voice, an open-source voice interface for Omarchy: say a wake word and whichever AI agent is installed (Claude Code, Codex, Gemini) answers out loud, with all speech processing on the machine, tuned to run CPU-only on a 2014 laptop.
 
@@ -48,14 +48,14 @@ Responsys / Oracle (2007-2026)
 Principal Professional Solutions Consultant -> Data Architect -> Solutions Architect -> Principal Applications Engineer, Operations
 
 Owning the Platform (2013-2026)
-- Fielded the final escalations on production data integration issues, joining customer calls as the subject matter expert and advising on how their integrations should be built. As the author of the framework, the buck stopped there: anything that could not be resolved was an infrastructure problem, not an integration one.
+- Fielded the final escalations on production data integration issues as the framework's author, joining customer calls as the subject matter expert and advising on how their integrations should be built
 - Made the architectural decisions on reliability, redundancy, and capacity planning after Oracle acquired the company
-- Led the migration of the whole environment from bare metal to containers on Oracle Cloud Infrastructure (OCI), using Docker, Kubernetes, Git, and Jenkins, and finished it without a significant downtime event
-- Deployed the environment in new datacenters as the platform expanded
+- Deployed the data integration environment in new datacenters as the platform expanded
+- Led the migration of the production data integration environment from bare metal to containers on Oracle Cloud Infrastructure (OCI), using Docker, Kubernetes, Git, and Jenkins, and finished it without a significant downtime event
 
 Building the Platform (2007-2013)
 - Designed and built the company's data pipeline and integration framework from scratch. It replaced 95% of the custom scripts running in production, became the standard across professional services, and grew to carry 200+ production jobs for 80+ enterprise customers
-- Owned end-to-end delivery of customer engagements: discovery, requirements gathering, documentation, implementation, custom development, and handover to support
+- Trusted with the company's highest-profile customer engagements, owning delivery end to end: discovery, requirements gathering, documentation, implementation, custom development, and handover to support
 - Trained consultants and partners on implementation best practices; primary subject matter expert for custom data integration across the organization
 
 Notable customers: Williams Sonoma, Pottery Barn, West Elm, Epson, Orbitz, Carlson Wagonlit, Verizon, Disney, Symantec, Lenovo, Levi's, Lego, PayPal, See's, Coach, Grainger, Intuit, Wells Fargo, BabyCenter

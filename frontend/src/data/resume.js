@@ -15,7 +15,7 @@ export const resumeData = {
     "Agent Voice": "https://github.com/duaneoca/agent-voice",
   },
 
-  summary: `Extensive experience in technical professional services, at the point where deep implementation work meets direct customer engagement. The loop has always been the same: sit with a customer, understand what they actually need, find where the product falls short, then go write the missing piece. I've built data pipelines and integration systems from scratch, owned them through production at enterprise scale, and made the architectural decisions about how they grow. I'm drawn to understanding how systems work, and to making them work better.`,
+  summary: `I've spent my career in technical professional services, doing hands-on implementation work directly with customers. My approach is to sit with a customer, learn what they need, find where the product falls short, and write the missing piece. I've built data pipelines and integration systems from scratch and owned them in production at enterprise scale, including the architecture decisions as they grew. More recently I've brought the same approach to AI, building agentic systems on LangGraph, MCP, and RAG, with model output validated in code. I'm drawn to understanding how systems work, and to making them work better.`,
 
   skills: [
     {
@@ -77,7 +77,7 @@ export const resumeData = {
   currentProjects: [
     {
       id: "proj-email-agent",
-      text: "Built and deployed an agentic email pipeline: a LangGraph agent that sorts job emails with a decision model, extracts posting links with an LLM whose output is validated in code, and hands genuinely ambiguous cases to a human over Slack. Moved the sorting decision from an LLM to Jev, which cut cost per email from about $1.00 to $0.04 and processing time from minutes to seconds. Langfuse for observability, MCP servers on both ends. Wrote the threat model before any code, then built against it: prompt injection, stored XSS, and cross-tenant access each have a specific mitigation.",
+      text: "Built and deployed an agentic email pipeline: a LangGraph agent that sorts job emails with a decision model, extracts posting links with an LLM whose output is validated in code, and hands ambiguous cases to a human over Slack. Moved the sorting decision from an LLM to Jev, which cut cost per email from about $1.00 to $0.04 and processing time from minutes to seconds. Langfuse for observability, MCP servers on both ends. Wrote the threat model before writing any code, with a specific mitigation for prompt injection, stored XSS, and cross-tenant access.",
       chatPrompt: "Tell me about your agentic email pipeline project.",
     },
     {
@@ -115,10 +115,10 @@ export const resumeData = {
           title: "Owning the Platform",
           period: "2013 – 2026",
           bullets: [
-            "Fielded the final escalations on production data integration issues, joining customer calls as the subject matter expert and advising on how their integrations should be built. As the author of the framework, the buck stopped there: anything that could not be resolved was an infrastructure problem, not an integration one.",
+            "Fielded the final escalations on production data integration issues as the framework's author, joining customer calls as the subject matter expert and advising on how their integrations should be built",
             "Made the architectural decisions on reliability, redundancy, and capacity planning after Oracle acquired the company",
-            "Led the migration of the whole environment from bare metal to containers on Oracle Cloud Infrastructure (OCI), using Docker, Kubernetes, Git, and Jenkins, and finished it without a significant downtime event",
-            "Deployed the environment in new datacenters as the platform expanded",
+            "Deployed the data integration environment in new datacenters as the platform expanded",
+            "Led the migration of the production data integration environment from bare metal to containers on Oracle Cloud Infrastructure (OCI), using Docker, Kubernetes, Git, and Jenkins, and finished it without a significant downtime event",
           ],
         },
         {
@@ -127,7 +127,7 @@ export const resumeData = {
           period: "2007 – 2013",
           bullets: [
             "Designed and built the company's data pipeline and integration framework from scratch. It replaced 95% of the custom scripts running in production, became the standard across professional services, and grew to carry 200+ production jobs for 80+ enterprise customers",
-            "Owned end-to-end delivery of customer engagements: discovery, requirements gathering, documentation, implementation, custom development, and handover to support",
+            "Trusted with the company's highest-profile customer engagements, owning delivery end to end: discovery, requirements gathering, documentation, implementation, custom development, and handover to support",
             "Trained consultants and partners on implementation best practices; primary subject matter expert for custom data integration across the organization",
           ],
         },
