@@ -1,3 +1,5 @@
+import LinkedText from './LinkedText'
+
 const CloseIcon = () => (
   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -64,12 +66,12 @@ export default function DetailPanel({ item, onClose, onAskAboutThis }) {
                     {item.content.map((line, i) => (
                       <li key={i} className="flex gap-3">
                         <span className="text-blue-400 shrink-0 mt-1 text-xs">▸</span>
-                        <span>{line}</span>
+                        <span><LinkedText text={line} /></span>
                       </li>
                     ))}
                   </ul>
                 ) : (
-                  <p>{item.content}</p>
+                  <p><LinkedText text={item.content} /></p>
                 )}
               </div>
 

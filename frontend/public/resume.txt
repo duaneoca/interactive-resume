@@ -29,11 +29,11 @@ AI & Emerging:
 - Edge and on-device AI: wake-word detection, speech-to-text, and text-to-speech on Raspberry Pi (openWakeWord, Moonshine, Piper)
 
 
-CURRENT PROJECTS (2024-present)
+PRODUCTION AI PROJECTS (2024-present)
 
-- Built and deployed an agentic email pipeline: a LangGraph agent that sorts job emails with a decision model, extracts posting links with an LLM whose output is validated in code, and hands genuinely ambiguous cases to a human over Slack. Replacing the original design, where an LLM checked another LLM, cut cost per email from about $1.00 to $0.04 and processing time from minutes to seconds. Langfuse for observability, MCP servers on both ends. Wrote the threat model before any code, then built against it: prompt injection, stored XSS, and cross-tenant access each have a specific mitigation.
+- Built and deployed an agentic email pipeline: a LangGraph agent that sorts job emails with a decision model, extracts posting links with an LLM whose output is validated in code, and hands genuinely ambiguous cases to a human over Slack. Moved the sorting decision from an LLM to Jev, which cut cost per email from about $1.00 to $0.04 and processing time from minutes to seconds. Langfuse for observability, MCP servers on both ends. Wrote the threat model before any code, then built against it: prompt injection, stored XSS, and cross-tenant access each have a specific mitigation.
 
-- Designed and built private voice assistant devices on Raspberry Pi and ReSpeaker hardware: wake word, speech-to-text, and speech synthesis all run on the device itself, feeding a self-hosted AI agent hands-free. Each unit keeps its own memory scope and listens on no inbound ports.
+- Designed and built private voice assistant devices on Raspberry Pi and ReSpeaker hardware: wake word, speech-to-text, and speech synthesis all run on the device itself, feeding a self-hosted AI agent hands-free. Each unit keeps its own memory scope and listens on no inbound ports. Brought the same design to the desktop as Agent Voice, an open-source voice interface for Omarchy: say a wake word and whichever AI agent is installed (Claude Code, Codex, Gemini) answers out loud, with all speech processing on the machine, tuned to run CPU-only on a 2014 laptop.
 
 - Launched two production AI sites. hire-duane.org is an interactive resume with RAG-backed chat and job-fit evaluation, built to be readable by crawling agents. job-radar.net runs on AWS and handles multi-provider job search with AI scoring, resume tailoring, application workflow, and interview prep.
 
@@ -41,24 +41,22 @@ CURRENT PROJECTS (2024-present)
 
 - Automated multi-step workflows in n8n, wiring APIs and services together with LLM-powered decision nodes.
 
-- Wrote conversational agents for Home Assistant that handle automations, device states, and scenes in plain language.
-
 
 EXPERIENCE
 
 Responsys / Oracle (2007-2026)
 Principal Professional Solutions Consultant -> Data Architect -> Solutions Architect -> Principal Applications Engineer, Operations
 
-Building the Platform (2007-2013)
-- Designed and built the company's data pipeline and integration framework from scratch. It replaced 95% of the custom scripts running in production, became the standard across professional services, and grew to carry 200+ production jobs for 80+ enterprise customers
-- Owned end-to-end delivery of customer engagements: discovery, requirements gathering, documentation, implementation, custom development, and handover to support
-- Trained consultants and partners on implementation best practices; primary subject matter expert for custom data integration across the organization
-
 Owning the Platform (2013-2026)
 - Fielded the final escalations on production data integration issues, joining customer calls as the subject matter expert and advising on how their integrations should be built. As the author of the framework, the buck stopped there: anything that could not be resolved was an infrastructure problem, not an integration one.
 - Made the architectural decisions on reliability, redundancy, and capacity planning after Oracle acquired the company
 - Led the migration of the whole environment from bare metal to containers on Oracle Cloud Infrastructure (OCI), using Docker, Kubernetes, Git, and Jenkins, and finished it without a significant downtime event
 - Deployed the environment in new datacenters as the platform expanded
+
+Building the Platform (2007-2013)
+- Designed and built the company's data pipeline and integration framework from scratch. It replaced 95% of the custom scripts running in production, became the standard across professional services, and grew to carry 200+ production jobs for 80+ enterprise customers
+- Owned end-to-end delivery of customer engagements: discovery, requirements gathering, documentation, implementation, custom development, and handover to support
+- Trained consultants and partners on implementation best practices; primary subject matter expert for custom data integration across the organization
 
 Notable customers: Williams Sonoma, Pottery Barn, West Elm, Epson, Orbitz, Carlson Wagonlit, Verizon, Disney, Symantec, Lenovo, Levi's, Lego, PayPal, See's, Coach, Grainger, Intuit, Wells Fargo, BabyCenter
 
@@ -70,6 +68,7 @@ Principal Professional Services Consultant -> Team Lead, Custom Solutions Group
 - Built multi-currency and exchange rate support from scratch, which made the company's first international enterprise deployments possible at Cisco and Sybase. The features later shipped in the core product
 - Worked directly with engineering to drive bug fixes and code changes into the product codebase
 - Spent 18 months in the UK as lead technical member of the founding professional services team; trained and mentored three colleagues, hands-on across all client implementations
+- Turned around six at-risk implementations led by other consultants, diagnosing deployment and implementation issues and getting each customer back on track
 - Led a team of professional services developers implementing custom solutions across the client base
 
 Notable customers: Cisco Systems, Sybase, Ernst & Young, A.T. Kearney, State of Alaska, Franklin Investments, Lawrence Livermore National Labs, Memorial Sloan Kettering Cancer Center, UCLA, McKinsey & Co.

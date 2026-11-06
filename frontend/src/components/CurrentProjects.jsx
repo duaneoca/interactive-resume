@@ -1,9 +1,10 @@
 import SectionHeader from './SectionHeader'
+import LinkedText from './LinkedText'
 
 export default function CurrentProjects({ data, onExpand }) {
   return (
     <section>
-      <SectionHeader title="Current Projects (2024–present)" />
+      <SectionHeader title="Production AI Projects (2024–present)" />
       <ul className="space-y-2">
         {data.map((project) => (
           <li
@@ -20,7 +21,7 @@ export default function CurrentProjects({ data, onExpand }) {
           >
             <span className="text-blue-400 mt-1 shrink-0">▸</span>
             <span className="text-slate-600 dark:text-slate-300 text-[15px] leading-relaxed flex-1 group-hover:text-slate-800 dark:group-hover:text-slate-100 transition-colors">
-              {project.text}
+              <LinkedText text={project.text} />
             </span>
             <svg
               className="w-3.5 h-3.5 text-blue-400 opacity-0 group-hover:opacity-100 transition-opacity self-center shrink-0"

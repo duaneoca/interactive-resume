@@ -35,6 +35,10 @@ That multi-currency and exchange rate work was eventually incorporated into the 
 
 This experience (finding a gap, building the missing piece yourself, owning it through to production) became the defining pattern of Duane's career. He did it again at Responsys, at a much larger scale.
 
+### The Turnaround Specialist
+
+Over time at Extensity, Duane became the expert on deploying and configuring the application, so when another consultant's implementation ran into trouble, he was the one pulled in to get it back on track. That happened at least six times. Once, the CEO asked if he could get on a plane to Massachusetts that afternoon and sort out what was wrong with a customer's implementation. The same work took him to New York City and other places around the world. Each time, he found the issues, made the changes to the implementation, and got the project back on track so it could go live.
+
 ### Leaving Extensity
 
 After eight years, Duane wasn't looking to leave. The decision was made for him by circumstance. Two of the five people on his team left for other jobs. Then his manager resigned. Then his manager's manager. The future of the product was looking uncertain, and his workload was about to double or triple on a collapsing team.
@@ -95,9 +99,9 @@ This distinction matters: Duane is honest about where his depth is and where it 
 
 Duane left Oracle in 2026 after a long tenure. He's honest about the context: it's a tough job market, and the pivot he's making is a deliberate one, not a casual exploration.
 
-The target role is Forward Deployed Engineer, a title that's become one of the hottest in the industry, particularly at AI-focused companies. FDE roles sit at the intersection of deep technical work and direct customer engagement. They require someone who can understand what a customer actually needs, figure out where the product falls short, and go build the missing piece. That description is essentially Duane's entire career.
+He's targeting roles like Forward Deployed Engineer, AI Solutions Architect, and Applied AI Engineer. Companies use different titles for the same job, and Forward Deployed Engineer in particular has become one of the hottest titles in the industry, especially at AI-focused companies. These roles sit at the intersection of deep technical work and direct customer engagement. They require someone who can understand what a customer actually needs, figure out where the product falls short, and go build the missing piece. That description is essentially Duane's entire career.
 
-His core strengths map directly to what FDE roles require:
+His core strengths map directly to what these roles require:
 - Requirements discovery and gap analysis: the core of his whole career
 - Translating technical constraints into business terms, which is what professional services consulting is
 - End-to-end ownership of customer implementations, from discovery through production

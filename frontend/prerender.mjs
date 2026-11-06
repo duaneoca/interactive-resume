@@ -55,7 +55,6 @@ const jsonLd = {
     addressRegion: (contact.location.split(',')[1] || '').trim(),
     addressCountry: 'US',
   },
-  jobTitle: 'Forward Deployed Engineer',
   description: summary,
   knowsAbout: skills.flatMap((group) => group.items),
   alumniOf: education.map((e) => ({
@@ -88,7 +87,7 @@ html = html.replace(jsonLdRe, jsonLdBlock)
 writeFileSync(distHtml, html)
 
 // ---- 4. Assert the output is actually crawlable -----------------------------
-const required = ['Responsys', 'Extensive experience', 'UC Berkeley', 'Current Projects']
+const required = ['Responsys', 'Extensive experience', 'UC Berkeley', 'Production AI Projects']
 const missing = required.filter((s) => !html.includes(s))
 if (missing.length) {
   fail(`output is missing expected content: ${missing.join(', ')}`)

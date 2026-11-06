@@ -9,12 +9,36 @@ import DetailPanel from './components/DetailPanel'
 import ChatPanel from './components/ChatPanel'
 import ChatFab from './components/ChatFab'
 import EvaluatorModal from './components/EvaluatorModal'
+import WelcomeSplash from './components/WelcomeSplash'
 import { resumeData } from './data/resume'
+
+const WELCOME_KEY = 'welcome-seen'
 
 export default function App() {
   const [panelItem, setPanelItem] = useState(null)
   const [chatState, setChatState] = useState(null) // { context, initialPrompt }
   const [evaluatorOpen, setEvaluatorOpen] = useState(false)
+  const [welcomeOpen, setWelcomeOpen] = useState(false)
+
+  // Show the welcome splash on a visitor's first load. It is decided after
+  // mount, not during render, so the prerendered HTML never contains it.
+  // ?welcome forces it, for trying it out.
+  useEffect(() => {
+    let seen = false
+    try {
+      seen = localStorage.getItem(WELCOME_KEY) === '1'
+    } catch {}
+    if (!seen || new URLSearchParams(window.location.search).has('welcome')) {
+      setWelcomeOpen(true)
+    }
+  }, [])
+
+  const closeWelcome = () => {
+    setWelcomeOpen(false)
+    try {
+      localStorage.setItem(WELCOME_KEY, '1')
+    } catch {}
+  }
 
   useEffect(() => {
     fetch('/api/visit', {
@@ -83,6 +107,15 @@ export default function App() {
         isOpen={evaluatorOpen}
         onClose={() => setEvaluatorOpen(false)}
         onOpenChat={openChat}
+      />
+
+      <WelcomeSplash
+        isOpen={welcomeOpen}
+        onClose={closeWelcome}
+        onOpenChat={() => {
+          closeWelcome()
+          openChat()
+        }}
       />
     </div>
   )

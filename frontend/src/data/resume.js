@@ -8,6 +8,13 @@ export const resumeData = {
     linkedin: "linkedin.com/in/duane-pinkerton",
   },
 
+  // Text in the resume that renders as a link wherever it appears.
+  links: {
+    "hire-duane.org": "https://hire-duane.org",
+    "job-radar.net": "https://job-radar.net",
+    "Agent Voice": "https://github.com/duaneoca/agent-voice",
+  },
+
   summary: `Extensive experience in technical professional services, at the point where deep implementation work meets direct customer engagement. The loop has always been the same: sit with a customer, understand what they actually need, find where the product falls short, then go write the missing piece. I've built data pipelines and integration systems from scratch, owned them through production at enterprise scale, and made the architectural decisions about how they grow. I'm drawn to understanding how systems work, and to making them work better.`,
 
   skills: [
@@ -70,13 +77,13 @@ export const resumeData = {
   currentProjects: [
     {
       id: "proj-email-agent",
-      text: "Built and deployed an agentic email pipeline: a LangGraph agent that sorts job emails with a decision model, extracts posting links with an LLM whose output is validated in code, and hands genuinely ambiguous cases to a human over Slack. Replacing the original design, where an LLM checked another LLM, cut cost per email from about $1.00 to $0.04 and processing time from minutes to seconds. Langfuse for observability, MCP servers on both ends. Wrote the threat model before any code, then built against it: prompt injection, stored XSS, and cross-tenant access each have a specific mitigation.",
+      text: "Built and deployed an agentic email pipeline: a LangGraph agent that sorts job emails with a decision model, extracts posting links with an LLM whose output is validated in code, and hands genuinely ambiguous cases to a human over Slack. Moved the sorting decision from an LLM to Jev, which cut cost per email from about $1.00 to $0.04 and processing time from minutes to seconds. Langfuse for observability, MCP servers on both ends. Wrote the threat model before any code, then built against it: prompt injection, stored XSS, and cross-tenant access each have a specific mitigation.",
       chatPrompt: "Tell me about your agentic email pipeline project.",
     },
     {
       id: "proj-hermes-sat",
-      text: "Designed and built private voice assistant devices on Raspberry Pi and ReSpeaker hardware: wake word, speech-to-text, and speech synthesis all run on the device itself, feeding a self-hosted AI agent hands-free. Each unit keeps its own memory scope and listens on no inbound ports",
-      chatPrompt: "Tell me about your private voice assistant project.",
+      text: "Designed and built private voice assistant devices on Raspberry Pi and ReSpeaker hardware: wake word, speech-to-text, and speech synthesis all run on the device itself, feeding a self-hosted AI agent hands-free. Each unit keeps its own memory scope and listens on no inbound ports. Brought the same design to the desktop as Agent Voice, an open-source voice interface for Omarchy: say a wake word and whichever AI agent is installed (Claude Code, Codex, Gemini) answers out loud, with all speech processing on the machine, tuned to run CPU-only on a 2014 laptop",
+      chatPrompt: "Tell me about your voice assistant projects: the Raspberry Pi devices and Agent Voice.",
     },
     {
       id: "proj-ai-app",
@@ -93,11 +100,6 @@ export const resumeData = {
       text: "Automated multi-step workflows in n8n, wiring APIs and services together with LLM-powered decision nodes",
       chatPrompt: "Tell me about your n8n workflow automation work.",
     },
-    {
-      id: "proj-ha-agents",
-      text: "Wrote conversational agents for Home Assistant that handle automations, device states, and scenes in plain language",
-      chatPrompt: "Tell me about your Home Assistant AI agent work.",
-    },
   ],
 
   experience: [
@@ -109,16 +111,6 @@ export const resumeData = {
         "Principal Professional Solutions Consultant → Data Architect → Solutions Architect → Principal Applications Engineer, Operations",
       sections: [
         {
-          id: "exp-oracle-building",
-          title: "Building the Platform",
-          period: "2007 – 2013",
-          bullets: [
-            "Designed and built the company's data pipeline and integration framework from scratch. It replaced 95% of the custom scripts running in production, became the standard across professional services, and grew to carry 200+ production jobs for 80+ enterprise customers",
-            "Owned end-to-end delivery of customer engagements: discovery, requirements gathering, documentation, implementation, custom development, and handover to support",
-            "Trained consultants and partners on implementation best practices; primary subject matter expert for custom data integration across the organization",
-          ],
-        },
-        {
           id: "exp-oracle-owning",
           title: "Owning the Platform",
           period: "2013 – 2026",
@@ -127,6 +119,16 @@ export const resumeData = {
             "Made the architectural decisions on reliability, redundancy, and capacity planning after Oracle acquired the company",
             "Led the migration of the whole environment from bare metal to containers on Oracle Cloud Infrastructure (OCI), using Docker, Kubernetes, Git, and Jenkins, and finished it without a significant downtime event",
             "Deployed the environment in new datacenters as the platform expanded",
+          ],
+        },
+        {
+          id: "exp-oracle-building",
+          title: "Building the Platform",
+          period: "2007 – 2013",
+          bullets: [
+            "Designed and built the company's data pipeline and integration framework from scratch. It replaced 95% of the custom scripts running in production, became the standard across professional services, and grew to carry 200+ production jobs for 80+ enterprise customers",
+            "Owned end-to-end delivery of customer engagements: discovery, requirements gathering, documentation, implementation, custom development, and handover to support",
+            "Trained consultants and partners on implementation best practices; primary subject matter expert for custom data integration across the organization",
           ],
         },
       ],
@@ -163,6 +165,7 @@ export const resumeData = {
         "Built multi-currency and exchange rate support from scratch, which made the company's first international enterprise deployments possible at Cisco and Sybase. The features later shipped in the core product",
         "Worked directly with engineering to drive bug fixes and code changes into the product codebase",
         "Spent 18 months in the UK as lead technical member of the founding professional services team; trained and mentored three colleagues, hands-on across all client implementations",
+        "Turned around six at-risk implementations led by other consultants, diagnosing deployment and implementation issues and getting each customer back on track",
         "Led a team of professional services developers implementing custom solutions across the client base",
       ],
       notableCustomers: [

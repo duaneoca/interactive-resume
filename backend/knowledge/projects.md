@@ -103,3 +103,36 @@ Python, openWakeWord, Moonshine (on-device STT), Piper (on-device TTS), an OpenA
 Edge and on-device AI, voice interface engineering, real-time audio pipelines, embedded Linux and hardware bring-up, reliable service packaging and deployment, security-conscious network design, and clean, swappable software architecture.
 
 **Honest framing for the assistant:** This is a completed, deployed personal project (a small device fleet), with a Raspberry Pi 5 variant still in progress. It is the main example of Duane's edge and on-device AI work, distinct from his cloud and API-based AI projects. Represent it as a real, hands-on hardware-plus-software build, recently completed.
+
+---
+
+## Agent Voice (voice interface for Omarchy)
+
+**Stage: built and published as open source** at github.com/duaneoca/agent-voice, installable as an Omarchy shell plugin, with CI.
+
+### One-line
+
+A drop-in voice layer for the Omarchy Linux desktop: say a wake word and whichever AI agent is installed on the machine answers out loud.
+
+### What it is and does
+
+Agent Voice takes the approach of the hermes-satellite devices and brings it to the desktop. Omarchy already ships push-to-talk dictation into a text field; Agent Voice is the other half: a wake word instead of a keypress, an agent instead of a text field, and a spoken answer. Wake word, speech-to-text, and text-to-speech all run locally. Only the agent call leaves the machine, and only if the agent itself is remote.
+
+It is agent-agnostic. It follows Omarchy's default-agent setting, so switching agents at the desktop switches the voice too. Claude Code, Codex, Gemini, and Antigravity have answered live turns through their CLIs, and OpenAI-compatible endpoints (OpenAI, Groq, xAI Grok, Ollama, LM Studio, vLLM) work as well.
+
+### Engineering highlights
+
+- **Built for old hardware:** benchmarked on a 2014 MacBook Pro, CPU only. If it needs a GPU, it doesn't ship. Model choices were measured, not assumed: faster-whisper `tiny.en` with a short custom-vocabulary prompt cut domain errors by 41% for 41ms, which beat moving up two model sizes at a cost of 1.8 seconds. Transcription lands about 320ms after you stop talking, and Piper starts speaking in about 22ms.
+- **Permissions you can see:** the agent works in one project directory at a permission level (ask, edits, or trusted) that is stored per agent, and the panel shows what is in force before you speak. For Claude Code, a hook intercepts each tool call and shows an on-screen prompt with Deny, Allow once, and a countdown; silence denies. Agents that can't raise a prompt are held in their safest mode.
+- **You own the mic:** nothing listens unless you turn it on, consent lasts one session (the service is never enabled at boot), and a locked screen always closes the microphone.
+- **Cut rather than shipped insecurely:** nine CLI backends were removed rather than shipped because they passed the spoken prompt as a command-line argument, readable by any local account through `/proc`. Every remaining backend hands the prompt over privately.
+
+### Tech stack
+
+Python, openWakeWord, faster-whisper, Piper, PipeWire, Quickshell (QML) for the bar widget and overlay, systemd user services, Hyprland, and `uv` for an isolated Python install.
+
+### Skills it demonstrates
+
+Voice interface engineering, local and CPU-only AI, agent integration across many CLIs and APIs, permission and consent design for agents, Linux desktop integration, and measuring latency trade-offs instead of guessing.
+
+**Honest framing for the assistant:** This is a recent, public, working open-source project and the desktop counterpart to the hermes-satellite devices. Represent it as built and published, not as a widely adopted product.
